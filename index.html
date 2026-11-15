@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFA Level I Executive Prep — pauloacichetto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-obsidian: #0C0C0E;
+      --bg-charcoal: #141417;
+      --bg-card: #1C1C21;
+      --bg-elevated: #24242B;
+      --border-subtle: #2A2A32;
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --gold-primary: #D4AF37;
+      --gold-bright: #E5C158;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --text-cream: #F5F2EB;
+      --text-muted: #A1A1AA;
+      --emerald: #10B981;
+      --emerald-soft: rgba(16, 185, 129, 0.12);
+      --crimson: #EF4444;
+      --crimson-soft: rgba(239, 68, 68, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: var(--text-cream);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .font-serif-editorial {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0C0C0E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2A2A32;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+
+    /* Gold Gradient & Accents */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F5E6B3 0%, #D4AF37 50%, #B58E24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-btn {
+      background: linear-gradient(135deg, #E5C158 0%, #C59B27 100%);
+      color: #0C0C0E;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .gold-btn:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px -6px rgba(212, 175, 55, 0.4);
+    }
+
+    .card-surface {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    .card-gold-border {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+    }
+
+    /* Animated Slide Canvas */
+    .slide-stage {
+      background: radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.10), transparent 45%),
+                  radial-gradient(circle at 15% 85%, rgba(16, 185, 129, 0.06), transparent 45%),
+                  linear-gradient(180deg, #151519 0%, #0E0E11 100%);
+      border: 1px solid #2E2E38;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes pulseWave {
+      0%, 100% { height: 6px; opacity: 0.5; }
+      50% { height: 22px; opacity: 1; }
+    }
+
+    .wave-bar {
+      width: 3px;
+      background-color: #D4AF37;
+      border-radius: 2px;
+      display: inline-block;
+      margin: 0 1.5px;
+      height: 6px;
+      transition: height 0.15s ease;
+    }
+
+    .playing .wave-bar:nth-child(1) { animation: pulseWave 0.7s infinite 0.1s; }
+    .playing .wave-bar:nth-child(2) { animation: pulseWave 0.5s infinite 0.2s; }
+    .playing .wave-bar:nth-child(3) { animation: pulseWave 0.8s infinite 0.0s; }
+    .playing .wave-bar:nth-child(4) { animation: pulseWave 0.6s infinite 0.3s; }
+    .playing .wave-bar:nth-child(5) { animation: pulseWave 0.75s infinite 0.15s; }
+
+    .topic-item.active {
+      background: rgba(212, 175, 55, 0.12);
+      border-left: 3px solid #D4AF37;
+      color: #F5E6B3;
+    }
+
+    .tab-pill.active {
+      background: #1C1C21;
+      color: #E5C158;
+      border-bottom: 2px solid #D4AF37;
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.inset-0{inset:0px}.z-20{z-index:20}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.ml-1{margin-left:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-3{margin-top:0.75rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-2{margin-top:0.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-4{height:1rem}.h-9{height:2.25rem}.h-full{height:100%}.h-screen{height:100vh}.h-6{height:1.5rem}.max-h-\[88vh\]{max-height:88vh}.min-h-\[260px\]{min-height:260px}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-4{width:1rem}.w-80{width:20rem}.w-9{width:2.25rem}.w-full{width:100%}.w-6{width:1.5rem}.max-w-2xl{max-width:42rem}.max-w-5xl{max-width:64rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-wrap{white-space:pre-wrap}.break-words{overflow-wrap:break-word}.break-all{word-break:break-all}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-md{border-radius:0.375rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-\[\#10B981\]\/30{border-color:rgb(16 185 129 / 0.3)}.border-\[\#10B981\]\/40{border-color:rgb(16 185 129 / 0.4)}.border-\[\#2A2A32\]{--tw-border-opacity:1;border-color:rgb(42 42 50 / var(--tw-border-opacity, 1))}.border-\[\#2E2E38\]{--tw-border-opacity:1;border-color:rgb(46 46 56 / var(--tw-border-opacity, 1))}.border-\[\#D4AF37\]\/30{border-color:rgb(212 175 55 / 0.3)}.border-\[\#D4AF37\]\/40{border-color:rgb(212 175 55 / 0.4)}.border-\[\#D4AF37\]\/50{border-color:rgb(212 175 55 / 0.5)}.border-\[\#3F3F46\]{--tw-border-opacity:1;border-color:rgb(63 63 70 / var(--tw-border-opacity, 1))}.border-l-\[\#D4AF37\]{--tw-border-opacity:1;border-left-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.bg-\[\#0C0C0E\]{--tw-bg-opacity:1;background-color:rgb(12 12 14 / var(--tw-bg-opacity, 1))}.bg-\[\#101014\]\/90{background-color:rgb(16 16 20 / 0.9)}.bg-\[\#10B981\]{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-\[\#10B981\]\/10{background-color:rgb(16 185 129 / 0.1)}.bg-\[\#10B981\]\/20{background-color:rgb(16 185 129 / 0.2)}.bg-\[\#111114\]{--tw-bg-opacity:1;background-color:rgb(17 17 20 / var(--tw-bg-opacity, 1))}.bg-\[\#111115\]{--tw-bg-opacity:1;background-color:rgb(17 17 21 / var(--tw-bg-opacity, 1))}.bg-\[\#121216\]{--tw-bg-opacity:1;background-color:rgb(18 18 22 / var(--tw-bg-opacity, 1))}.bg-\[\#141417\]{--tw-bg-opacity:1;background-color:rgb(20 20 23 / var(--tw-bg-opacity, 1))}.bg-\[\#16161B\]{--tw-bg-opacity:1;background-color:rgb(22 22 27 / var(--tw-bg-opacity, 1))}.bg-\[\#18181C\]{--tw-bg-opacity:1;background-color:rgb(24 24 28 / var(--tw-bg-opacity, 1))}.bg-\[\#18181D\]{--tw-bg-opacity:1;background-color:rgb(24 24 29 / var(--tw-bg-opacity, 1))}.bg-\[\#19191F\]{--tw-bg-opacity:1;background-color:rgb(25 25 31 / var(--tw-bg-opacity, 1))}.bg-\[\#1C1C21\]{--tw-bg-opacity:1;background-color:rgb(28 28 33 / var(--tw-bg-opacity, 1))}.bg-\[\#24242B\]{--tw-bg-opacity:1;background-color:rgb(36 36 43 / var(--tw-bg-opacity, 1))}.bg-\[\#24242C\]{--tw-bg-opacity:1;background-color:rgb(36 36 44 / var(--tw-bg-opacity, 1))}.bg-\[\#D4AF37\]\/10{background-color:rgb(212 175 55 / 0.1)}.bg-\[\#D4AF37\]\/15{background-color:rgb(212 175 55 / 0.15)}.bg-\[\#D4AF37\]\/20{background-color:rgb(212 175 55 / 0.2)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-\[\#3F3F46\]{--tw-bg-opacity:1;background-color:rgb(63 63 70 / var(--tw-bg-opacity, 1))}.bg-\[\#D4AF37\]{--tw-bg-opacity:1;background-color:rgb(212 175 55 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#D4AF37\]{--tw-gradient-from:#D4AF37 var(--tw-gradient-from-position);--tw-gradient-to:rgb(212 175 55 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-\[\#10B981\]{--tw-gradient-to:#10B981 var(--tw-gradient-to-position)}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-1{padding-bottom:0.25rem}.pb-3{padding-bottom:0.75rem}.pb-4{padding-bottom:1rem}.pl-5{padding-left:1.25rem}.pt-3{padding-top:0.75rem}.pt-4{padding-top:1rem}.pb-2{padding-bottom:0.5rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.text-left{text-align:left}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-\[\#10B981\]{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.text-\[\#A1A1AA\]{--tw-text-opacity:1;color:rgb(161 161 170 / var(--tw-text-opacity, 1))}.text-\[\#D4AF37\]{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-\[\#D4D4D8\]{--tw-text-opacity:1;color:rgb(212 212 216 / var(--tw-text-opacity, 1))}.text-\[\#E4E4E7\]{--tw-text-opacity:1;color:rgb(228 228 231 / var(--tw-text-opacity, 1))}.text-\[\#E5C158\]{--tw-text-opacity:1;color:rgb(229 193 88 / var(--tw-text-opacity, 1))}.text-\[\#F5F2EB\]{--tw-text-opacity:1;color:rgb(245 242 235 / var(--tw-text-opacity, 1))}.text-\[\#71717A\]{--tw-text-opacity:1;color:rgb(113 113 122 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.placeholder-\[\#71717A\]::placeholder{--tw-placeholder-opacity:1;color:rgb(113 113 122 / var(--tw-placeholder-opacity, 1))}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.last\:border-none:last-child{border-style:none}.hover\:border-\[\#10B981\]:hover{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1))}.hover\:border-\[\#D4AF37\]:hover{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#222228\]:hover{--tw-bg-opacity:1;background-color:rgb(34 34 40 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#27272F\]:hover{--tw-bg-opacity:1;background-color:rgb(39 39 47 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#2E2E38\]:hover{--tw-bg-opacity:1;background-color:rgb(46 46 56 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#D4AF37\]\/20:hover{background-color:rgb(212 175 55 / 0.2)}.hover\:bg-\[\#D4AF37\]\/30:hover{background-color:rgb(212 175 55 / 0.3)}.hover\:bg-\[\#18181C\]:hover{--tw-bg-opacity:1;background-color:rgb(24 24 28 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#F5F2EB\]:hover{--tw-text-opacity:1;color:rgb(245 242 235 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:border-\[\#D4AF37\]:focus{--tw-border-opacity:1;border-color:rgb(212 175 55 / var(--tw-border-opacity, 1))}@media (min-width: 640px){.sm\:select-auto{-webkit-user-select:auto;user-select:auto}}@media (min-width: 768px){.md\:flex{display:flex}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:p-8{padding:2rem}.lg\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 1280px){.xl\:flex{display:flex}}</style></head>
+<body class="h-screen flex flex-col overflow-hidden select-none sm:select-auto">
+
+  <!-- TOP EXECUTIVE HEADER -->
+  <header class="bg-[#111114] border-b border-[#2A2A32] px-4 lg:px-6 py-3 flex flex-wrap items-center justify-between gap-3 shrink-0 z-20">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-[#1C1C21] border border-[#D4AF37]/40 flex items-center justify-center shadow-inner">
+        <span class="font-serif-editorial font-bold text-lg gold-gradient-text">CFA</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-base font-bold tracking-tight text-[#F5F2EB]">CFA Level I • Executive Agent Studio</h1>
+          <span class="text-[11px] font-mono-code uppercase px-2 py-0.5 rounded bg-[#D4AF37]/15 text-[#E5C158] border border-[#D4AF37]/30">Maio • Meta 300h</span>
+        </div>
+        <p class="text-xs text-[#A1A1AA]">Arquitetura Orquestrada (Zero Alucinação • Base 100% CFA Institute LOS)</p>
+      </div>
+    </div>
+
+    <!-- Weekly Schedule Pill & GitHub Badge -->
+    <div class="flex flex-wrap items-center gap-3">
+      <!-- Cronograma 1h/dia útil + 7h FDS -->
+      <div class="hidden xl:flex items-center gap-2.5 bg-[#18181C] border border-[#2A2A32] px-3.5 py-1.5 rounded-lg text-xs">
+        <span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+        <span class="text-[#A1A1AA]">Meta Semanal:</span>
+        <span id="weekly-hours-badge" class="font-mono-code text-[#F5F2EB] font-medium">0h / 19h (1h Seg–Sex + 7h FDS)</span>
+        <button onclick="logStudyHour()" class="ml-1 px-2 py-0.5 rounded bg-[#D4AF37]/20 hover:bg-[#D4AF37]/30 text-[#E5C158] font-mono-code font-bold transition" title="Registrar +1h de estudo concluída">+1h</button>
+      </div>
+
+      <!-- API Key Status Button -->
+      <button onclick="openAgentModal()" class="flex items-center gap-1.5 bg-[#18181C] hover:bg-[#222228] border border-[#2A2A32] px-3 py-1.5 rounded-lg text-xs transition" title="Configurar Chave Gemini API">
+        <span id="api-key-dot" class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+        <span id="api-key-status-text" class="font-mono-code text-[#D4D4D8]">API Gemini Ativa</span>
+      </button>
+
+      <!-- GitHub Connected Profile Badge -->
+      <button onclick="switchMainTab('github')" class="flex items-center gap-2 bg-[#18181C] hover:bg-[#222228] border border-[#2A2A32] px-3 py-1.5 rounded-lg text-xs transition" title="Publicar no GitHub (Opção A)">
+        <svg class="w-4 h-4 text-[#E5C158]" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+        </svg>
+        <div class="text-left">
+          <div class="font-mono-code text-[#F5F2EB] font-medium leading-none">pauloacichetto</div>
+          <div class="text-[10px] text-[#A1A1AA] leading-none mt-0.5">pauloacichetto@gmail.com</div>
+        </div>
+      </button>
+
+      <!-- AI Tutor Contextual Doubt Button -->
+      <button onclick="openTutorModal()" class="gold-btn px-3.5 py-2 rounded-lg text-xs flex items-center gap-2 shadow-md">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+        </svg>
+        <span>Tirar Dúvida c/ Tutor IA</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APPLICATION BODY -->
+  <div class="flex-1 flex overflow-hidden">
+
+    <!-- LEFT SIDEBAR: HIERARQUIA COMPLETA DOS 10 MACROS DO EDITAL -->
+    <aside class="w-80 bg-[#111114] border-r border-[#2A2A32] flex flex-col shrink-0 hidden md:flex">
+      <div class="p-4 border-b border-[#2A2A32] flex items-center justify-between">
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">10 Blocos Macro • Edital Completo</h2>
+          <p class="text-[11px] text-[#A1A1AA] mt-0.5">Macro &gt; Grupo &gt; Tópico (LOS)</p>
+        </div>
+        <span id="topic-counter-badge" class="text-[11px] font-mono-code bg-[#1C1C21] border border-[#2A2A32] px-2 py-0.5 rounded text-[#E5C158]">10 Macros • 14 Módulos</span>
+      </div>
+
+      <!-- Filter / Search inside curriculum -->
+      <div class="px-3 pt-3 pb-1">
+        <input id="sidebar-search" type="text" oninput="renderSidebarTree()" placeholder="Buscar nos 10 blocos (ex: DuPont, CAPM, GIPS)..." class="w-full bg-[#18181C] border border-[#2A2A32] focus:border-[#D4AF37] rounded-lg px-3 py-1.5 text-xs text-[#F5F2EB] placeholder-[#71717A] outline-none">
+      </div>
+
+      <div id="curriculum-tree" class="flex-1 overflow-y-auto p-3 space-y-4"><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 1: Ética e Padrões Profissionais (15–20%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 active font-semibold">
+              <span class="truncate">1.1 Standard I — Professionalism (Conhecimento da Lei e Independência)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">1.2 Standard II &amp; III — MNPI, Teoria do Mosaico e Deveres com Clientes</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">1.3 Standards IV–VII e Normas GIPS (Global Investment Performance Standards)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 2: Métodos Quantitativos (6–9%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">2.1 Time Value of Money, EAR &amp; Retornos (TWR vs. MWR)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">2.2 Teorema de Bayes, Teste de Hipóteses (Erros Tipo I/II) &amp; Regressão Linear</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 3: Economia (6–9%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">3.1 Estruturas de Mercado, Política Monetária/Fiscal &amp; Taxas de Câmbio</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 4: Emissores Corporativos (6–9%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">4.1 Governança Corporativa, NPV vs. IRR &amp; Cost of Capital (WACC)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 5: Análise de Demonstrações Financeiras — FSA (11–14%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">5.1 Decomposição DuPont do ROE (3-Way e 5-Way) &amp; Fluxo de Caixa (IFRS vs. US GAAP)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">5.2 Estoques (FIFO vs. LIFO com Inflação), Capitalização vs. Despesa &amp; DTA/DTL</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 6: Investimentos em Ações — Equity (11–14%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">6.1 Eficiência de Mercado (EMH), Índices &amp; Valuation (Gordon DDM e Múltiplos)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 7: Renda Fixa — Fixed Income (11–14%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">7.1 Precificação (Full vs. Flat Price), Macaulay/Modified/Effective Duration &amp; Convexidade</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 8: Derivativos (5–8%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">8.1 Precificação a Termo (Forward) &amp; Paridade Put-Call (Put-Call Parity)</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 9: Investimentos Alternativos (7–10%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">9.1 Cálculo de Taxas de Hedge Funds (2/20, High-Water Mark e Hurdle Rate) &amp; Private Equity</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div><div class="space-y-1"><div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2">Macro 10: Gestão de Portfólio (8–12%)</div><button class="topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 text-[#D4D4D8] hover:bg-[#18181C]">
+              <span class="truncate">10.1 CAPM, Beta, Sharpe vs. Treynor vs. Alpha de Jensen &amp; IPS</span>
+              <span class="text-[11px] font-mono-code text-[#71717A] shrink-0">
+                1Q
+              </span>
+            </button></div></div>
+
+      <!-- Study Progress Footer -->
+      <div class="p-3.5 bg-[#141417] border-t border-[#2A2A32] space-y-2">
+        <div class="flex justify-between text-xs">
+          <span class="text-[#A1A1AA]">Tópicos Concluídos</span>
+          <span id="topics-completed-score" class="font-mono-code text-[#E5C158] font-semibold">0 / 14</span>
+        </div>
+        <div class="flex justify-between text-xs">
+          <span class="text-[#A1A1AA]">Domínio nas Questões</span>
+          <span id="mastery-score" class="font-mono-code text-[#10B981] font-semibold">0 / 14 acertadas</span>
+        </div>
+        <div class="w-full h-1.5 bg-[#24242B] rounded-full overflow-hidden">
+          <div id="mastery-bar" class="h-full bg-gradient-to-r from-[#D4AF37] to-[#10B981] transition-all duration-300" style="width: 8%"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="flex-1 flex flex-col overflow-hidden bg-[#0C0C0E]">
+
+      <!-- Topic Breadcrumb & Quick Actions Bar -->
+      <div class="bg-[#141417] border-b border-[#2A2A32] px-6 py-3 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <div>
+          <div id="active-breadcrumb" class="text-xs font-mono-code text-[#A1A1AA]">Macro 1: Ética e Padrões Profissionais  &gt; <span class="text-[#E5C158] font-semibold">1.1 Standard I — Professionalism (Conhecimento da Lei e Independência)</span></div>
+          <h2 id="active-topic-title" class="text-lg font-bold text-[#F5F2EB] mt-0.5">1.1 Standard I — Professionalism (Conhecimento da Lei e Independência)</h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="openTutorModal()" class="text-xs px-3 py-1.5 rounded-lg border border-[#D4AF37]/40 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-[#E5C158] font-medium flex items-center gap-1.5 transition">
+            <span>💬 Perguntar ao Tutor IA sobre este Tópico</span>
+          </button>
+          <span id="active-weight-badge" class="text-xs font-mono-code px-2.5 py-1.5 rounded-lg bg-[#1C1C21] border border-[#2A2A32] text-[#A1A1AA]">Peso: <strong class="text-[#E5C158]">15–20%</strong></span>
+          <button onclick="markTopicCompleted()" id="btn-complete-topic" class="text-xs px-3 py-1.5 rounded-lg border border-[#2A2A32] bg-[#1C1C21] hover:border-[#10B981] text-[#F5F2EB] flex items-center gap-1.5 transition">
+            <span id="complete-check-icon">○</span>
+            <span>Concluir Tópico</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- NAVIGATION TABS -->
+      <nav class="bg-[#111114] border-b border-[#2A2A32] px-6 flex items-center gap-2 overflow-x-auto shrink-0">
+        <button onclick="switchMainTab('video')" id="tab-btn-video" class="tab-pill px-4 py-3 text-xs font-semibold tracking-wide flex items-center gap-2 transition whitespace-nowrap text-[#A1A1AA]">
+          <span>🎬 1. Vídeo-Aula &amp; Slides Narrados</span>
+        </button>
+        <button onclick="switchMainTab('resumo')" id="tab-btn-resumo" class="tab-pill px-4 py-3 text-xs font-semibold tracking-wide text-[#A1A1AA] hover:text-[#F5F2EB] flex items-center gap-2 transition whitespace-nowrap">
+          <span>📑 2. Resumo Oficial, Fórmulas &amp; Glossário EN-PT</span>
+        </button>
+        <button onclick="switchMainTab('questoes')" id="tab-btn-questoes" class="tab-pill px-4 py-3 text-xs font-semibold tracking-wide text-[#A1A1AA] hover:text-[#F5F2EB] flex items-center gap-2 transition whitespace-nowrap">
+          <span>🎯 3. Questões Comentadas (Por que é / não é)</span>
+        </button>
+        <button onclick="switchMainTab('github')" id="tab-btn-github" class="tab-pill px-4 py-3 text-xs font-semibold tracking-wide hover:text-[#F5F2EB] flex items-center gap-2 transition whitespace-nowrap active">
+          <span>🚀 4. Publicar no GitHub (Opção A • 2 Minutos)</span>
+        </button>
+      </nav>
+
+      <!-- TAB CONTENT AREA -->
+      <section class="flex-1 overflow-y-auto p-6">
+        <div class="max-w-5xl mx-auto">
+
+          <!-- ==========================================
+               TAB 1: ESTÚDIO DE VÍDEO-SLIDES & PODCAST IA
+               ========================================== -->
+          <div id="panel-video" class="space-y-6 hidden">
+            <div class="card-gold-border p-4 flex flex-wrap items-center justify-between gap-4 bg-[#18181D]">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center text-[#E5C158] shrink-0 mt-0.5">
+                  🎙️
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold text-[#F5F2EB]">Aula em Vídeo-Slides já Pronta para Todos os 10 Blocos do CFA</h3>
+                  <p class="text-xs text-[#A1A1AA] mt-0.5">
+                    Clique em <strong>Dar Play na Vídeo-Aula Narrada</strong> para ouvir a explicação com avanço automático de slides, ou chame o <strong>Tutor IA</strong> se surgir qualquer dúvida específica.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="generateGeminiStudioAudio()" id="btn-gemini-tts" class="text-xs px-3 py-2 rounded-lg bg-[#24242C] hover:bg-[#2E2E38] border border-[#D4AF37]/40 text-[#E5C158] font-medium flex items-center gap-1.5 transition">
+                  <span>✨ Ouvir Diálogo Podcast Dual-Voice (Gemini TTS)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- VIDEO / SLIDE STAGE -->
+            <div class="slide-stage rounded-2xl p-6 lg:p-8 shadow-2xl">
+              <div class="flex items-center justify-between border-b border-[#2A2A32] pb-4 mb-6">
+                <div class="flex items-center gap-3">
+                  <span id="slide-counter-pill" class="text-xs font-mono-code px-2.5 py-1 rounded bg-[#D4AF37]/20 text-[#E5C158] font-semibold">SLIDE 1 / 2</span>
+                  <span id="slide-los-tag" class="text-xs font-mono-code text-[#A1A1AA]">
+                    Currículo Oficial CFA Level I • Pré-Carregado
+                  </span>
+                </div>
+
+                <div id="voice-wave-container" class="flex items-center gap-2 bg-[#141417] border border-[#2A2A32] px-3 py-1 rounded-full">
+                  <span id="voice-status-label" class="text-[11px] font-mono-code text-[#A1A1AA]">Pronto para narrar</span>
+                  <div class="flex items-end h-4">
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center min-h-[260px]">
+                <div class="lg:col-span-7 space-y-4">
+                  <div id="slide-speaker-badge" class="inline-flex items-center gap-2 text-xs font-mono-code uppercase tracking-wider text-[#D4AF37]">👨‍🏫 Professor CFA • Regra da Régua Mais Alta</div>
+                  <h3 id="slide-heading" class="text-2xl font-bold text-[#F5F2EB] leading-snug">Standard I(A): Knowledge of the Law &amp; Dissociação</h3>
+                  <ul id="slide-bullets" class="space-y-2.5 text-sm text-[#D4D4D8]"><li class="flex items-start gap-2.5 leading-relaxed"><span class="text-[#D4AF37] font-bold mt-0.5">▸</span><span>Em conflito entre a lei local do país e o Código do CFA Institute, siga sempre a norma MAIS RÍGIDA (the stricter rule).</span></li><li class="flex items-start gap-2.5 leading-relaxed"><span class="text-[#D4AF37] font-bold mt-0.5">▸</span><span>Se identificar uma ilegalidade cometida por colegas ou clientes: 1º Reporte ao supervisor/compliance; 2º Se nada for feito, dissocie-se por escrito; 3º Em último caso, peça demissão.</span></li><li class="flex items-start gap-2.5 leading-relaxed"><span class="text-[#D4AF37] font-bold mt-0.5">▸</span><span>O CFA exige dissociação imediata, mas NÃO obriga denúncia externa ao regulador (whistleblowing), salvo se a lei local exigir.</span></li></ul>
+                </div>
+
+                <div class="lg:col-span-5">
+                  <div class="bg-[#121216] border border-[#2E2E38] rounded-xl p-5 shadow-inner">
+                    <div class="text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] mb-2 flex items-center justify-between">
+                      <span>Quadro-Negro / Fórmula &amp; Regra</span>
+                      <span>LOS Focus</span>
+                    </div>
+                    <div id="slide-visual-box" class="font-mono-code text-xs text-[#F5F2EB] leading-relaxed bg-[#19191F] p-4 rounded-lg border border-[#2A2A32] whitespace-pre-wrap">CONFLITO DE NORMAS:<br>Lei Local vs. Código CFA ➔ Siga a MAIS ESTRITA.<br><br>PROTOCOLO DE DISSOCIAÇÃO:<br>1. Alertar Compliance<br>2. Tirar seu nome do relatório / Afastar-se<br>3. Demissão se a empresa forçar participação</div>
+                    <div id="slide-exam-tip" class="mt-3 text-xs text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 rounded-lg p-3"><strong>💡 Dica de Prova:</strong> Pegadinha Clássica: Marcar que o analista é obrigado pelo CFA a denunciar a empresa à CVM/SEC. O obrigatório pelo Standard I(A) é DISSOCIAR-SE!</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-[#101014]/90 border border-[#2A2A32] rounded-xl p-4">
+                <div class="flex items-center justify-between text-[11px] text-[#A1A1AA] mb-1">
+                  <span class="font-mono-code uppercase tracking-wider text-[#E5C158]">Roteiro Falado do Professor (Legenda Sincronizada)</span>
+                  <span id="audio-source-indicator" class="font-mono-code">Voz: Síntese PT-BR</span>
+                </div>
+                <p id="slide-narration-text" class="text-sm text-[#F5F2EB] leading-relaxed italic">"No Standard um A, Conhecimento da Lei, grave duas regras que sempre caem: primeiro, entre a lei do país e o CFA, vence sempre a regra mais rigorosa. Segundo: descobriu uma fraude na sua gestora e o compliance engavetou? Você é obrigado a se dissociar imediatamente, tirando seu nome do projeto, mas o CFA não te obriga a fazer denúncia externa para a polícia ou regulador."</p>
+                <audio id="gemini-audio-player" class="hidden"></audio>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-[#2A2A32] flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                  <button onclick="prevSlide()" class="px-3 py-2 rounded-lg bg-[#1C1C21] hover:bg-[#27272F] border border-[#2A2A32] text-xs font-medium text-[#F5F2EB] transition">
+                    ⏮ Anterior
+                  </button>
+                  <button onclick="togglePlayLecture()" id="btn-play-lecture" class="gold-btn px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2">
+                    <span id="play-icon">▶</span>
+                    <span id="play-label">Dar Play na Vídeo-Aula Narrada</span>
+                  </button>
+                  <button onclick="nextSlide()" class="px-3 py-2 rounded-lg bg-[#1C1C21] hover:bg-[#27272F] border border-[#2A2A32] text-xs font-medium text-[#F5F2EB] transition">
+                    Próximo ⏭
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3">
+                  <div id="slide-dots" class="flex items-center gap-1.5"><button class="h-2 rounded-full transition-all w-6 bg-[#D4AF37]"></button><button class="h-2 rounded-full transition-all w-2 bg-[#3F3F46]"></button></div>
+                  <select id="speech-rate" onchange="updateSpeechRate()" class="bg-[#1C1C21] border border-[#2A2A32] rounded-lg px-2.5 py-1.5 text-xs font-mono-code text-[#E5C158] outline-none">
+                    <option value="1">Velocidade 1.0x</option>
+                    <option value="1.15" selected="">Velocidade 1.15x</option>
+                    <option value="1.3">Velocidade 1.3x</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================
+               TAB 2: RESUMO EXECUTIVO, FÓRMULAS & GLOSSÁRIO
+               ========================================== -->
+          <div id="panel-resumo" class="hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div class="lg:col-span-2 space-y-5">
+                <div class="card-surface p-6">
+                  <div class="flex items-center justify-between border-b border-[#2A2A32] pb-3 mb-4">
+                    <h3 class="text-base font-bold text-[#E5C158]">Síntese Oficial dos Learning Outcome Statements (LOS)</h3>
+                    <button onclick="openTutorModal('Me explique este resumo com um exemplo prático de mercado financeiro')" class="text-xs text-[#10B981] hover:underline font-mono-code">
+                      + Pedir exemplo prático ao Tutor IA
+                    </button>
+                  </div>
+                  <div id="resumo-content-html" class="space-y-3 text-sm text-[#E4E4E7] leading-relaxed">
+          <p>O <strong>Standard I (Professionalism)</strong> governa a integridade básica do candidato e membro CFA:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>I(A) Knowledge of the Law:</strong> Cumpra a regra mais estrita. Dissocie-se imediatamente de atividades ilegais ou antiéticas.</li>
+            <li><strong>I(B) Independence and Objectivity:</strong> Não aceite benefícios que comprometam seu julgamento técnico independente.</li>
+            <li><strong>I(C) Misrepresentation:</strong> Proibido plagiar modelos de terceiros ou garantir retornos de investimentos sujeitos a risco de mercado.</li>
+            <li><strong>I(D) Misconduct:</strong> Qualquer ato fraudulento ou desonesto que afete sua reputação profissional viola o código.</li>
+          </ul>
+        </div>
+                </div>
+
+                <div class="card-surface p-6 border-l-4 border-l-[#D4AF37]">
+                  <h4 class="text-sm font-bold uppercase tracking-wider text-[#E5C158] mb-2">
+                    ⚠️ Pegadinhas Clássicas da Prova (Onde os candidatos perdem ponto)
+                  </h4>
+                  <ul id="resumo-traps-list" class="space-y-2 text-sm text-[#D4D4D8] list-disc pl-5"><li>Confundir Dissociação (obrigatória) com Whistleblowing externo (voluntário pelo código do CFA).</li><li>Esquecer que usar dados públicos factuais (ex: inflação do IBGE) não exige citação autoral individual.</li></ul>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                <div class="card-surface p-5">
+                  <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-xs font-mono-code uppercase tracking-wider text-[#D4AF37]">
+                      📐 Fórmulas &amp; Regras de Ouro
+                    </h4>
+                    <button onclick="openTutorModal('Me ensine passo a passo como calcular essas fórmulas na calculadora BA II Plus ou HP 12C')" class="text-[11px] text-[#E5C158] hover:underline">
+                      Na Calculadora ➔
+                    </button>
+                  </div>
+                  <div id="resumo-formulas-box" class="space-y-2.5 font-mono-code text-xs"><div class="bg-[#141417] border border-[#2A2A32] p-3 rounded-lg">
+          <div class="text-[10px] text-[#A1A1AA] uppercase mb-1">Regra de Conflito</div>
+          <div class="text-[#E5C158] font-semibold break-words">Norma Aplicável = MAX(Rigidez Lei Local, Rigidez CFA)</div>
+        </div><div class="bg-[#141417] border border-[#2A2A32] p-3 rounded-lg">
+          <div class="text-[10px] text-[#A1A1AA] uppercase mb-1">Presentes de Clientes</div>
+          <div class="text-[#E5C158] font-semibold break-words">Pós-Performance = Disclosure | Pré-Performance = Permissão Prévia</div>
+        </div></div>
+                </div>
+
+                <div class="card-surface p-5">
+                  <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-xs font-mono-code uppercase tracking-wider text-[#10B981]">
+                      🇬🇧 ➔ 🇧🇷 Glossário Técnico CFA
+                    </h4>
+                    <span class="text-[10px] text-[#A1A1AA]">Inglês de Prova</span>
+                  </div>
+                  <div id="resumo-glossary-box" class="space-y-2.5 text-xs"><div class="border-b border-[#2A2A32] pb-2 last:border-none">
+          <div class="font-mono-code font-semibold text-[#F5F2EB]">More strict law</div>
+          <div class="text-[#A1A1AA] mt-0.5">A lei ou norma mais rigorosa</div>
+        </div><div class="border-b border-[#2A2A32] pb-2 last:border-none">
+          <div class="font-mono-code font-semibold text-[#F5F2EB]">Dissociate from the activity</div>
+          <div class="text-[#A1A1AA] mt-0.5">Dissociar-se / afastar-se formalmente da atividade</div>
+        </div><div class="border-b border-[#2A2A32] pb-2 last:border-none">
+          <div class="font-mono-code font-semibold text-[#F5F2EB]">Misrepresentation</div>
+          <div class="text-[#A1A1AA] mt-0.5">Deturpação de fatos ou promessa enganosa</div>
+        </div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==========================================
+               TAB 3: SIMULADO RAIO-X (ENGENHARIA REVERSA)
+               ========================================== -->
+          <div id="panel-questoes" class="hidden space-y-6">
+            <div class="card-surface p-5 flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <h3 class="text-base font-bold text-[#F5F2EB]">Treino de Engenharia Reversa (Padrão CFA Institute: 3 Alternativas)</h3>
+                <p class="text-xs text-[#A1A1AA] mt-0.5">
+                  Clique em qualquer alternativa para ver <strong>por que a correta é verdadeira</strong> e <strong>por que cada falsa é uma armadilha</strong>.
+                </p>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <button onclick="generateExtraQuestionWithAI()" id="btn-extra-q" class="gold-btn px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                  <span>⚡ Gerar +1 Questão Inédita deste Tópico (IA)</span>
+                </button>
+                <button onclick="revealAllQuestionsInTopic()" class="px-3.5 py-2 rounded-lg bg-[#24242B] hover:bg-[#2E2E38] border border-[#D4AF37]/40 text-xs font-semibold text-[#E5C158] transition">
+                  👁️ Destrinchar Todas
+                </button>
+                <button onclick="resetTopicQuiz()" class="px-3 py-2 rounded-lg bg-[#18181C] hover:bg-[#222228] border border-[#2A2A32] text-xs text-[#A1A1AA] transition">
+                  Limpar
+                </button>
+              </div>
+            </div>
+
+            <div id="questions-list-container" class="space-y-6"><div class="card-surface p-6 space-y-4" id="q-card-q-m1-1"><div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#2A2A32] pb-3">
+          <span class="text-xs font-mono-code uppercase text-[#D4AF37] font-bold">Questão #1 • Padrão CFA Level 1</span>
+          <div class="flex items-center gap-2">
+            <button onclick="openTutorModal('Me explique com mais detalhes a lógica da Questão #1: ' + " lucas,="" cfa,="" descobre="" que="" seu="" diretor="" alterou="" premissas="" de="" risco="" para="" fazer="" um="" fundo="" parecer="" mais="" seguro="" aos="" clientes.="" lucas="" reclama="" com="" o="" e="" compliance,="" mas="" ambos="" dizem="" nada="" será="" mudado.="" segundo="" standard="" i(a),="" deve="" fazer?")"="" class="text-xs px-2.5 py-1 rounded-lg bg-[#18181C] hover:bg-[#222228] border border-[#2A2A32] text-[#A1A1AA] hover:text-[#F5F2EB] transition">
+              💬 Tirar Dúvida desta Questão
+            </button>
+            <button onclick="speakQuestionExplanation('q-m1-1')" class="text-xs px-3 py-1 rounded-lg bg-[#24242B] hover:bg-[#2E2E38] border border-[#2A2A32] text-[#E5C158] flex items-center gap-1.5 transition">
+              <span>🔊 Ouvir Raio-X em Voz</span>
+            </button>
+          </div>
+        </div><p class="text-sm md:text-base text-[#F5F2EB] font-medium leading-relaxed">Lucas, CFA, descobre que seu diretor alterou premissas de risco para fazer um fundo parecer mais seguro aos clientes. Lucas reclama com o diretor e com o compliance, mas ambos dizem que nada será mudado. Segundo o Standard I(A), o que Lucas deve fazer?</p><div class="space-y-3 pt-1"><div class="q-option-item border border-[#2A2A32] hover:border-[#D4AF37] bg-[#141417] rounded-xl p-4 cursor-pointer transition" data-correct="false">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-md bg-[#24242B] border border-[#3F3F46] text-xs font-mono-code font-bold flex items-center justify-center text-[#E5C158] shrink-0 mt-0.5">A</span>
+                <span class="text-sm text-[#F5F2EB] leading-snug">Enviar os documentos confidenciais diretamente para a CVM/SEC denunciando a fraude.</span>
+              </div>
+              <span class="status-pill hidden text-[11px] font-mono-code font-bold px-2 py-0.5 rounded shrink-0"></span>
+            </div>
+            <div class="explanation-box hidden mt-3 pt-3 border-t border-[#2A2A32] text-xs leading-relaxed">
+              POR QUE É FALSA: O Código do CFA não obriga a denúncia externa (whistleblowing) à autoridade reguladora, exigindo prioritariamente a dissociação.
+            </div>
+          </div><div class="q-option-item border border-[#2A2A32] hover:border-[#D4AF37] bg-[#141417] rounded-xl p-4 cursor-pointer transition" data-correct="true">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-md bg-[#24242B] border border-[#3F3F46] text-xs font-mono-code font-bold flex items-center justify-center text-[#E5C158] shrink-0 mt-0.5">B</span>
+                <span class="text-sm text-[#F5F2EB] leading-snug">Dissociar-se da atividade, solicitando remoção do seu nome do material e transferência ou demissão.</span>
+              </div>
+              <span class="status-pill hidden text-[11px] font-mono-code font-bold px-2 py-0.5 rounded shrink-0"></span>
+            </div>
+            <div class="explanation-box hidden mt-3 pt-3 border-t border-[#2A2A32] text-xs leading-relaxed">
+              POR QUE É CORRETA: Quando a tentativa interna falha, o Standard I(A) exige dissociação imediata e documentada para não compactuar com a violação.
+            </div>
+          </div><div class="q-option-item border border-[#2A2A32] hover:border-[#D4AF37] bg-[#141417] rounded-xl p-4 cursor-pointer transition" data-correct="false">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-md bg-[#24242B] border border-[#3F3F46] text-xs font-mono-code font-bold flex items-center justify-center text-[#E5C158] shrink-0 mt-0.5">C</span>
+                <span class="text-sm text-[#F5F2EB] leading-snug">Assinar o relatório, mas guardar um e-mail privado registrando que avisou o compliance.</span>
+              </div>
+              <span class="status-pill hidden text-[11px] font-mono-code font-bold px-2 py-0.5 rounded shrink-0"></span>
+            </div>
+            <div class="explanation-box hidden mt-3 pt-3 border-t border-[#2A2A32] text-xs leading-relaxed">
+              POR QUE É FALSA: Continuar participando de algo ilegal mesmo discordando por e-mail configura violação direta do Standard I(A).
+            </div>
+          </div></div></div></div>
+          </div>
+
+          <!-- ==========================================
+               TAB 4: PUBLICAR NO GITHUB (OPÇÃO A - 2 MINUTOS VIA NAVEGADOR)
+               ========================================== -->
+          <div id="panel-github" class="space-y-6">
+            <!-- Hero Card: Option A Browser Deployment -->
+            <div class="card-gold-border p-6 bg-[#16161B]">
+              <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#2A2A32] pb-4 mb-5">
+                <div>
+                  <span class="text-xs font-mono-code uppercase text-[#10B981] font-bold">● Pronto para Produção • Opção A (Sem Terminal)</span>
+                  <h3 class="text-xl font-bold text-[#F5F2EB] mt-1">Colocar no Ar no seu GitHub (`pauloacichetto`) em 2 Minutos</h3>
+                  <p class="text-xs text-[#A1A1AA] mt-0.5">
+                    Conta vinculada: <strong class="text-[#E5C158] font-mono-code">pauloacichetto</strong> • E-mail: <strong class="text-[#E5C158] font-mono-code">pauloacichetto@gmail.com</strong>
+                  </p>
+                </div>
+                <button onclick="downloadProductionIndexHTML()" class="gold-btn px-5 py-3 rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg">
+                  <span>⬇️ PASSO 1: Baixar `index.html` Pronto para o GitHub</span>
+                </button>
+              </div>
+
+              <!-- 3 Simple Steps Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-[#111115] border border-[#2A2A32] rounded-xl p-4 space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono-code font-bold px-2 py-0.5 rounded bg-[#D4AF37]/20 text-[#E5C158]">ETAPA 1</span>
+                    <span class="text-[11px] text-[#A1A1AA]">30 segundos</span>
+                  </div>
+                  <h4 class="text-sm font-bold text-[#F5F2EB]">Criar o Repositório</h4>
+                  <p class="text-xs text-[#A1A1AA] leading-relaxed">
+                    1. Acesse <a href="https://github.com/new" target="_blank" class="text-[#E5C158] underline font-mono-code">github.com/new</a> logado na conta <strong>pauloacichetto</strong>.<br>
+                    2. Em <em>Repository name</em>, digite:<br>
+                    <code class="text-[#10B981] bg-[#1C1C21] px-1.5 py-0.5 rounded">cfa-executive-studio</code><br>
+                    3. Marque <strong>Public</strong> (para ter GitHub Pages gratuito) e clique em <strong>Create repository</strong>.
+                  </p>
+                </div>
+
+                <div class="bg-[#111115] border border-[#2A2A32] rounded-xl p-4 space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono-code font-bold px-2 py-0.5 rounded bg-[#D4AF37]/20 text-[#E5C158]">ETAPA 2</span>
+                    <span class="text-[11px] text-[#A1A1AA]">45 segundos</span>
+                  </div>
+                  <h4 class="text-sm font-bold text-[#F5F2EB]">Arrastar o `index.html`</h4>
+                  <p class="text-xs text-[#A1A1AA] leading-relaxed">
+                    1. Clique no botão dourado acima para baixar o arquivo já batizado como <strong>index.html</strong>.<br>
+                    2. Na tela do seu repositório recém-criado, clique no link azul <strong>"uploading an existing file"</strong>.<br>
+                    3. Arraste o arquivo <strong>index.html</strong> para lá e clique no botão verde <strong>Commit changes</strong>.
+                  </p>
+                </div>
+
+                <div class="bg-[#111115] border border-[#10B981]/40 rounded-xl p-4 space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-mono-code font-bold px-2 py-0.5 rounded bg-[#10B981]/20 text-[#10B981]">ETAPA 3</span>
+                    <span class="text-[11px] text-[#A1A1AA]">30 segundos</span>
+                  </div>
+                  <h4 class="text-sm font-bold text-[#F5F2EB]">Ativar seu Link Online</h4>
+                  <p class="text-xs text-[#A1A1AA] leading-relaxed">
+                    1. No topo do repositório, clique em <strong>Settings</strong> (⚙️) &gt; no menu lateral esquerdo clique em <strong>Pages</strong>.<br>
+                    2. Em <em>Branch</em>, mude de <code>None</code> para <strong>main</strong> e clique em <strong>Save</strong>.<br>
+                    3. Pronto! Seu sistema estará no ar em:<br>
+                    <span class="text-[#10B981] font-mono-code text-[11px] break-all">https://pauloacichetto.github.io/cfa-executive-studio/</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Schedule & Backup Controls -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="card-surface p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-[#E5C158]">📅 Seu Ritmo Semanal (19h/semana = 304h até Maio)</h4>
+                  <span class="text-xs font-mono-code text-[#10B981]">16 Semanas</span>
+                </div>
+                <p class="text-xs text-[#A1A1AA] leading-relaxed">
+                  • <strong>Segunda a Sexta (1h/dia):</strong> Escolha 1 tópico da barra lateral ➔ ouça os slides narrados (15 min) ➔ faça as questões comentadas (45 min).<br>
+                  • <strong>Sábado e Domingo (7h/dia):</strong> Avance 2 a 3 tópicos por dia e use o botão <em>⚡ Gerar +1 Questão Inédita</em> para treinar exaustivamente cada LOS.
+                </p>
+              </div>
+
+              <div class="card-surface p-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-bold text-[#F5F2EB]">🔑 Chave Gemini API (Para uso externo no GitHub Pages)</h4>
+                  <span id="api-key-status" class="text-[11px] font-mono-code text-[#10B981]">Ambiente Ativo</span>
+                </div>
+                <p class="text-xs text-[#A1A1AA]">
+                  Aqui dentro do Canvas a IA já funciona automaticamente. Quando você acessar pelo seu link <code>pauloacichetto.github.io</code>, cole sua chave gratuita do Google AI Studio abaixo (ela fica salva apenas no seu navegador):
+                </p>
+                <div class="flex gap-2">
+                  <input id="custom-gemini-key" type="password" placeholder="AIzaSy... (Opcional — salvo no seu navegador)" class="flex-1 bg-[#141417] border border-[#2A2A32] rounded-lg px-3 py-1.5 text-xs text-[#F5F2EB] font-mono-code outline-none">
+                  <button onclick="saveCustomApiKey()" class="px-3.5 py-1.5 rounded-lg bg-[#24242B] hover:bg-[#2E2E38] border border-[#D4AF37]/40 text-xs font-semibold text-[#E5C158]">
+                    Salvar Chave
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ==========================================
+       MODAL: TUTOR IA DE DÚVIDAS ESPECÍFICAS DO TÓPICO ATUAL
+       ========================================== -->
+  <div id="tutor-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#141417] border border-[#D4AF37]/50 rounded-2xl max-w-2xl w-full p-6 shadow-2xl flex flex-col max-h-[88vh]">
+      <div class="flex items-start justify-between border-b border-[#2A2A32] pb-3 shrink-0">
+        <div>
+          <span class="text-[11px] font-mono-code uppercase tracking-wider text-[#10B981]">● Tutor Especialista CFA • Ancorado no Tópico Atual</span>
+          <h3 id="tutor-modal-topic" class="text-base font-bold text-[#F5F2EB] mt-0.5">Tirar Dúvida Específica</h3>
+          <p class="text-xs text-[#A1A1AA]">
+            Pergunte qualquer detalhe sobre a fórmula, tradução de termo em inglês ou por que uma alternativa é falsa.
+          </p>
+        </div>
+        <button onclick="closeTutorModal()" class="text-[#A1A1AA] hover:text-[#F5F2EB] text-lg font-bold px-2">✕</button>
+      </div>
+
+      <!-- Quick Prompt Chips -->
+      <div class="py-3 flex flex-wrap gap-1.5 border-b border-[#2A2A32] shrink-0">
+        <button onclick="sendQuickTutorQuestion('Me dê uma analogia prática do dia a dia financeiro para eu nunca mais esquecer esse tópico.')" class="text-[11px] px-2.5 py-1 rounded-full bg-[#1C1C21] hover:bg-[#27272F] border border-[#2A2A32] text-[#E5C158] transition">
+          💡 Analogia Prática
+        </button>
+        <button onclick="sendQuickTutorQuestion('Como eu resolvo as contas desse tópico passo a passo na calculadora BA II Plus ou HP 12C?')" class="text-[11px] px-2.5 py-1 rounded-full bg-[#1C1C21] hover:bg-[#27272F] border border-[#2A2A32] text-[#E5C158] transition">
+          🧮 Passo a Passo na Calculadora
+        </button>
+        <button onclick="sendQuickTutorQuestion('Quais são as 3 maiores pegadinhas que o examinador do CFA faz sobre esse tema na prova?')" class="text-[11px] px-2.5 py-1 rounded-full bg-[#1C1C21] hover:bg-[#27272F] border border-[#2A2A32] text-[#E5C158] transition">
+          ⚠️ Pegadinhas de Prova
+        </button>
+        <button onclick="sendQuickTutorQuestion('Traduza e explique os principais termos em inglês que aparecem nas questões desse módulo.')" class="text-[11px] px-2.5 py-1 rounded-full bg-[#1C1C21] hover:bg-[#27272F] border border-[#2A2A32] text-[#E5C158] transition">
+          🇬🇧 Inglês da Prova
+        </button>
+      </div>
+
+      <!-- Chat History Box -->
+      <div id="tutor-chat-history" class="flex-1 overflow-y-auto py-4 space-y-3 text-xs leading-relaxed">
+        <div class="bg-[#1C1C21] border border-[#2A2A32] rounded-xl p-3.5 text-[#D4D4D8]">
+          <strong class="text-[#E5C158] block mb-1">👨‍🏫 Tutor CFA:</strong>
+          Olá, Paulo! Já estou com as regras, fórmulas e questões deste tópico abertas aqui. Qual é a sua dúvida específica?
+        </div>
+      </div>
+
+      <!-- Input Box -->
+      <div class="pt-3 border-t border-[#2A2A32] flex gap-2 shrink-0">
+        <input id="tutor-user-input" type="text" onkeydown="if(event.key==='Enter') askTutorQuestion()" placeholder="Digite sua dúvida sobre este assunto (ex: Por que na Modified Duration dividimos por 1+y?)..." class="flex-1 bg-[#1C1C21] border border-[#2A2A32] focus:border-[#D4AF37] rounded-xl px-3.5 py-2.5 text-xs text-[#F5F2EB] outline-none">
+        <button id="btn-send-tutor" onclick="askTutorQuestion()" class="gold-btn px-4 py-2.5 rounded-xl text-xs font-bold shrink-0">
+          Perguntar ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. CURRÍCULO COMPLETO PRÉ-POPULADO: TODOS OS 10 BLOCOS MACRO DO CFA LEVEL 1
+    // =========================================================================
+    const defaultCurriculumDB = [
+      // -----------------------------------------------------------------------
+      // MACRO 1: ETHICAL AND PROFESSIONAL STANDARDS (15–20%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m1-etica-1",
+        macro: "Macro 1: Ética e Padrões Profissionais (15–20%)",
+        group: "Grupo 1.1: Standards of Professional Conduct (I–VII)",
+        title: "1.1 Standard I — Professionalism (Conhecimento da Lei e Independência)",
+        weight: "15–20%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Regra da Régua Mais Alta",
+            heading: "Standard I(A): Knowledge of the Law & Dissociação",
+            bullets: [
+              "Em conflito entre a lei local do país e o Código do CFA Institute, siga sempre a norma MAIS RÍGIDA (the stricter rule).",
+              "Se identificar uma ilegalidade cometida por colegas ou clientes: 1º Reporte ao supervisor/compliance; 2º Se nada for feito, dissocie-se por escrito; 3º Em último caso, peça demissão.",
+              "O CFA exige dissociação imediata, mas NÃO obriga denúncia externa ao regulador (whistleblowing), salvo se a lei local exigir."
+            ],
+            visualFormula: "CONFLITO DE NORMAS:\nLei Local vs. Código CFA ➔ Siga a MAIS ESTRITA.\n\nPROTOCOLO DE DISSOCIAÇÃO:\n1. Alertar Compliance\n2. Tirar seu nome do relatório / Afastar-se\n3. Demissão se a empresa forçar participação",
+            examTip: "Pegadinha Clássica: Marcar que o analista é obrigado pelo CFA a denunciar a empresa à CVM/SEC. O obrigatório pelo Standard I(A) é DISSOCIAR-SE!",
+            narration: "No Standard um A, Conhecimento da Lei, grave duas regras que sempre caem: primeiro, entre a lei do país e o CFA, vence sempre a regra mais rigorosa. Segundo: descobriu uma fraude na sua gestora e o compliance engavetou? Você é obrigado a se dissociar imediatamente, tirando seu nome do projeto, mas o CFA não te obriga a fazer denúncia externa para a polícia ou regulador."
+          },
+          {
+            speaker: "👩‍💼 Analista Sênior • Presentes e Independência",
+            heading: "Standard I(B) Independence, I(C) Misrepresentation & I(D) Misconduct",
+            bullets: [
+              "Presentes de CLIENTES por bom desempenho passado são permitidos desde que divulgados ao empregador.",
+              "Viagens, hotéis e presentes caros pagos por EMPRESAS ANALISADAS (Issuers) comprometem a objetividade e devem ser recusados.",
+              "Standard I(C): Proibido garantir retorno em renda variável ou copiar análises sem citar o autor nominalmente."
+            ],
+            visualFormula: "QUEM ESTÁ PAGANDO O PRESENTE?\n• Cliente (pós-resultado) ➔ Permitido c/ Disclosure\n• Empresa Analisada (Issuer) ➔ PROIBIDO aceitar luxos",
+            examTip: "Se não houver transporte comercial para visitar uma mina isolada, a empresa analisada pode fornecer apenas o voo fretado estritamente necessário.",
+            narration: "No Standard um B, sempre pergunte quem está oferecendo o benefício. Se for um cliente agradecido pelo lucro que você gerou, avise seu chefe e pode aceitar. Se for a empresa emissora tentando pagar hotel cinco estrelas para você falar bem das ações dela, recuse imediatamente!"
+          }
+        ],
+        resumoHTML: `
+          <p>O <strong>Standard I (Professionalism)</strong> governa a integridade básica do candidato e membro CFA:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>I(A) Knowledge of the Law:</strong> Cumpra a regra mais estrita. Dissocie-se imediatamente de atividades ilegais ou antiéticas.</li>
+            <li><strong>I(B) Independence and Objectivity:</strong> Não aceite benefícios que comprometam seu julgamento técnico independente.</li>
+            <li><strong>I(C) Misrepresentation:</strong> Proibido plagiar modelos de terceiros ou garantir retornos de investimentos sujeitos a risco de mercado.</li>
+            <li><strong>I(D) Misconduct:</strong> Qualquer ato fraudulento ou desonesto que afete sua reputação profissional viola o código.</li>
+          </ul>
+        `,
+        traps: [
+          "Confundir Dissociação (obrigatória) com Whistleblowing externo (voluntário pelo código do CFA).",
+          "Esquecer que usar dados públicos factuais (ex: inflação do IBGE) não exige citação autoral individual."
+        ],
+        formulas: [
+          { label: "Regra de Conflito", code: "Norma Aplicável = MAX(Rigidez Lei Local, Rigidez CFA)" },
+          { label: "Presentes de Clientes", code: "Pós-Performance = Disclosure | Pré-Performance = Permissão Prévia" }
+        ],
+        glossary: [
+          { en: "More strict law", pt: "A lei ou norma mais rigorosa" },
+          { en: "Dissociate from the activity", pt: "Dissociar-se / afastar-se formalmente da atividade" },
+          { en: "Misrepresentation", pt: "Deturpação de fatos ou promessa enganosa" }
+        ],
+        questions: [
+          {
+            id: "q-m1-1",
+            stem: "Lucas, CFA, descobre que seu diretor alterou premissas de risco para fazer um fundo parecer mais seguro aos clientes. Lucas reclama com o diretor e com o compliance, mas ambos dizem que nada será mudado. Segundo o Standard I(A), o que Lucas deve fazer?",
+            options: [
+              { letter: "A", text: "Enviar os documentos confidenciais diretamente para a CVM/SEC denunciando a fraude.", correct: false, explanation: "POR QUE É FALSA: O Código do CFA não obriga a denúncia externa (whistleblowing) à autoridade reguladora, exigindo prioritariamente a dissociação." },
+              { letter: "B", text: "Dissociar-se da atividade, solicitando remoção do seu nome do material e transferência ou demissão.", correct: true, explanation: "POR QUE É CORRETA: Quando a tentativa interna falha, o Standard I(A) exige dissociação imediata e documentada para não compactuar com a violação." },
+              { letter: "C", text: "Assinar o relatório, mas guardar um e-mail privado registrando que avisou o compliance.", correct: false, explanation: "POR QUE É FALSA: Continuar participando de algo ilegal mesmo discordando por e-mail configura violação direta do Standard I(A)." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "m1-etica-2",
+        macro: "Macro 1: Ética e Padrões Profissionais (15–20%)",
+        group: "Grupo 1.1: Standards of Professional Conduct (I–VII)",
+        title: "1.2 Standard II & III — MNPI, Teoria do Mosaico e Deveres com Clientes",
+        weight: "15–20%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Informação Privilegiada vs. Mosaico",
+            heading: "Standard II(A) MNPI & Mosaic Theory",
+            bullets: [
+              "Material Nonpublic Information (MNPI): Proibido operar ou induzir outros a operar com informação relevante e não pública.",
+              "Teoria do Mosaico (Mosaic Theory): É 100% permitido combinar dados públicos com pesquisas de campo não-materiais (ex: entrevistar clientes, fornecedores ou medir fluxo de lojas).",
+              "Standard III(B) Fair Dealing: Tratar todos os clientes com equidade (rateio pro-rata em IPOs e envio simultâneo de recomendações)."
+            ],
+            visualFormula: "TEORIA DO MOSAICO:\n[Dados Públicos] + [Fragmentos Não-Materiais de Campo]\n= Recomendação Válida e Legal ✅\n\nALLOCATION DE IPOs (Standard III-B):\nRateio Pro-Rata entre todas as carteiras onde o ativo é Suitable.",
+            examTip: "Se a questão falar que o analista conversou com fornecedores ou contou caminhões na fábrica, marque Teoria do Mosaico (não há violação)!",
+            narration: "No Standard dois A, cuidado para não confundir informação privilegiada com trabalho de detetive! Se o diretor financeiro vazar o lucro antes do balanço, é MNPI e você não pode operar. Mas se você conversar com fornecedores, medir o movimento das lojas e cruzar com dados públicos, isso é Teoria do Mosaico e é totalmente incentivado pelo CFA!"
+          }
+        ],
+        resumoHTML: `
+          <p>Os <strong>Standards II e III</strong> protegem a integridade do mercado e a lealdade fiduciária aos clientes:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>II(A) MNPI:</strong> Proibido negociar com informação relevante e não pública. A <em>Mosaic Theory</em> é permitida.</li>
+            <li><strong>III(A) Loyalty, Prudence, and Care:</strong> Créditos de corretagem dos clientes (<em>Soft Dollars</em>) só podem pagar pesquisas que beneficiem os próprios clientes.</li>
+            <li><strong>III(B) Fair Dealing:</strong> Disseminar recomendações simultaneamente e ratear ordens de lote de forma proporcional (<em>pro-rata</em>).</li>
+            <li><strong>III(C) Suitability:</strong> Avaliar cada ativo no contexto do portfólio total e do <em>Investment Policy Statement (IPS)</em> do cliente.</li>
+          </ul>
+        `,
+        traps: [
+          "Confundir Fair Dealing (tratamento justo) com tratamento idêntico (serviços premium diferenciados são permitidos se divulgados e sem prejudicar a execução dos demais).",
+          "Usar Soft Dollars (corretagem de clientes) para pagar despesas operacionais da gestora."
+        ],
+        formulas: [
+          { label: "Mosaic Theory", code: "Public Info + Nonmaterial Nonpublic Info = No Violation" },
+          { label: "Rateio de Ofertas (IPO)", code: "Alocação Pro-Rata pelo tamanho do pedido entre contas elegíveis" }
+        ],
+        glossary: [
+          { en: "Material Nonpublic Information (MNPI)", pt: "Informação relevante e ainda não pública" },
+          { en: "Mosaic Theory", pt: "Teoria do Mosaico (pesquisa legítima combinada)" },
+          { en: "Oversubscribed IPO", pt: "Oferta pública com demanda maior que a quantidade disponível" }
+        ],
+        questions: [
+          {
+            id: "q-m1-2",
+            stem: "Uma analista entrevista médicos em hospitais e percebe que um equipamento cirúrgico da Empresa X apresenta falhas constantes. Cruzando isso com relatórios públicos de garantia, ela recomenda a venda da ação. Há violação do Standard II(A)?",
+            options: [
+              { letter: "A", text: "Não, pois ela aplicou a Teoria do Mosaico usando dados públicos e observações não-materiais.", correct: true, explanation: "POR QUE É CORRETA: Opiniões operacionais de usuários combinadas com relatórios públicos formam a Teoria do Mosaico, sem uso de informação privilegiada corporativa." },
+              { letter: "B", text: "Sim, pois a taxa de falha ainda não foi divulgada em Fato Relevante pela Empresa X.", correct: false, explanation: "POR QUE É FALSA: A informação veio de pesquisa independente de campo com terceiros (médicos), não de vazamento interno confidencial." },
+              { letter: "C", text: "Sim, porque ela deveria pedir autorização ao compliance da Empresa X antes de publicar.", correct: false, explanation: "POR QUE É FALSA: Analistas independentes não submetem suas recomendações à aprovação da empresa analisada." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "m1-etica-3",
+        macro: "Macro 1: Ética e Padrões Profissionais (15–20%)",
+        group: "Grupo 1.2: Standards IV–VII & GIPS",
+        title: "1.3 Standards IV–VII e Normas GIPS (Global Investment Performance Standards)",
+        weight: "15–20%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Empregadores e GIPS",
+            heading: "Standard IV (Empregadores) & Regras GIPS",
+            bullets: [
+              "Standard IV(A) Loyalty to Employer: Ao sair da empresa, você não pode levar listas de clientes, modelos proprietários ou captar clientes atuais antes de pedir demissão.",
+              "Quem pode reivindicar conformidade com o GIPS? Apenas GESTORAS DE RECURSOS (Firms) que gerenciam carteiras de forma discricionária — nunca indivíduos ou softwares.",
+              "Nos composites do GIPS, devem entrar TODAS as carteiras discricionárias pagantes (incluindo carteiras encerradas no histórico, para evitar Survivorship Bias)."
+            ],
+            visualFormula: "REGRAS DE OURO DO GIPS:\n• Quem adere? Apenas FIRMS (em base company-wide)\n• Quais carteiras entram nos Composites?\n  ➔ Todas as carteiras DISCRICIONÁRIAS e PAGANTES (atuais + encerradas)",
+            examTip: "Nunca inclua carteiras não-discricionárias (onde o cliente trava suas escolhas) em um Composite do GIPS!",
+            narration: "Para fechar Ética: lembre-se das normas GIPS de apresentação de performance. Primeiro: um analista pessoa física nunca pode dizer que está em conformidade com o GIPS; apenas uma gestora inteira pode fazer isso. Segundo: para evitar que a gestora esconda os fundos que deram prejuízo, os Composites do GIPS exigem incluir todas as carteiras discricionárias pagantes, inclusive aquelas de clientes que já encerraram a conta!"
+          }
+        ],
+        resumoHTML: `
+          <p>Os <strong>Standards IV a VII</strong> e o <strong>GIPS</strong> completam o bloco de maior peso da prova:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>IV(A) Loyalty to Employer:</strong> Preparativos para abrir um negócio próprio são permitidos no tempo livre, desde que não usem dados da empresa nem abordem clientes antes do desligamento.</li>
+            <li><strong>VI(A) Avoid or Disclose Conflicts:</strong> Divulgar aos clientes e ao empregador qualquer posse de ações ou relação comercial que possa gerar conflito.</li>
+            <li><strong>VII(B) Reference to CFA:</strong> Usar 'CFA' apenas como adjetivo (ex: <em>João Silva, CFA</em>) e nunca como substantivo ('Eu sou um CFA') ou prometendo performance superior.</li>
+            <li><strong>GIPS:</strong> Adesão voluntária, aplicada à gestora inteira (firm-wide), exigindo retorno ponderado pelo tempo (Time-Weighted Return) e inclusão de todas as contas discricionárias pagantes em pelo menos um Composite.</li>
+          </ul>
+        `,
+        traps: [
+          "Escrever 'João é um CFA' ou 'Candidato Level II' (o correto é 'João, CFA' ou 'Candidato no CFA Program que passou no Level I').",
+          "Excluir clientes que fecharam suas contas do histórico do Composite GIPS (isso geraria viés de sobrevivência / survivorship bias)."
+        ],
+        formulas: [
+          { label: "Composites GIPS", code: "Incluir 100% das Carteiras Discricionárias Pagantes (Ativas + Encerradas)" },
+          { label: "Verificação GIPS", code: "Opcional (mas recomendada), feita por terceiro independente na firma toda" }
+        ],
+        glossary: [
+          { en: "Discretionary Fee-Paying Portfolios", pt: "Carteiras pagantes com gestão discricionária livre" },
+          { en: "Survivorship Bias", pt: "Viés de sobrevivência (excluir fundos encerrados do histórico)" },
+          { en: "Additional Compensation Arrangement", pt: "Bônus pago por cliente que exige autorização prévia por escrito do empregador" }
+        ],
+        questions: [
+          {
+            id: "q-m1-3",
+            stem: "Uma gestora deseja declarar conformidade com as normas GIPS (Global Investment Performance Standards). Ao montar seus grupos de estratégias (Composites), quais carteiras devem obrigatoriamente ser incluídas?",
+            options: [
+              { letter: "A", text: "Todas as carteiras discricionárias e não-discricionárias atualmente ativas na gestora.", correct: false, explanation: "POR QUE É FALSA: Carteiras não-discricionárias NÃO podem ser incluídas nos Composites do GIPS, e carteiras encerradas também precisam permanecer no histórico." },
+              { letter: "B", text: "Todas as carteiras discricionárias pagantes (atuais e já encerradas) que sigam a estratégia do Composite.", correct: true, explanation: "POR QUE É CORRETA: O GIPS exige que todas as contas reais, pagantes e discricionárias sejam incluídas em pelo menos um Composite, mantendo o histórico das contas encerradas." },
+              { letter: "C", text: "Apenas as carteiras institucionais com patrimônio acima de US$ 5 milhões que permaneceram ativas nos últimos 5 anos.", correct: false, explanation: "POR QUE É FALSA: Excluir contas encerradas cria viés de sobrevivência e viola diretamente o GIPS." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 2: QUANTITATIVE METHODS (6–9%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m2-quant-1",
+        macro: "Macro 2: Métodos Quantitativos (6–9%)",
+        group: "Grupo 2.1: Time Value of Money & Estatística",
+        title: "2.1 Time Value of Money, EAR & Retornos (TWR vs. MWR)",
+        weight: "6–9%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Taxa Nominal vs. Efetiva (EAR)",
+            heading: "Effective Annual Rate (EAR) e Medidas de Retorno",
+            bullets: [
+              "Taxa Efetiva Anual (EAR): Converte uma taxa nominal declarada (Stated Annual Rate) capitalizada m vezes ao ano para a taxa real anualizada.",
+              "Time-Weighted Return (TWR): É a média geométrica dos subperíodos — NÃO é distorcida por aportes ou resgates dos clientes (padrão usado para avaliar gestores no GIPS).",
+              "Money-Weighted Return (MWR): É a Taxa Interna de Retorno (IRR) dos fluxos de caixa — se o cliente aporta muito dinheiro justo antes de uma queda, o MWR despenca!"
+            ],
+            visualFormula: "TAXA EFETIVA ANUAL (EAR):\nEAR = (1 + Stated Rate / m)^m - 1\n\nAVALIAÇÃO DE GESTOR vs. INVESTIDOR:\n• Avaliar Gestor (sem controle de saques) ➔ Time-Weighted (TWR)\n• Avaliar Bolso do Cliente (IRR) ➔ Money-Weighted (MWR)",
+            examTip: "Se o gestor não controla quando o cliente coloca ou tira dinheiro do fundo, a métrica justa para avaliá-lo na prova é SEMPRE o Time-Weighted Return (TWR)!",
+            narration: "Em Métodos Quantitativos, além de dominar a Taxa Efetiva Anual, você precisa saber a diferença entre Time-Weighted Return e Money-Weighted Return. O Money-Weighted é a TIR do fluxo de caixa: se o cliente colocou muito dinheiro no fundo justo na véspera de um crash, o retorno ponderado pelo dinheiro fica péssimo. Por isso, para avaliar a habilidade pura do gestor do fundo, o CFA usa sempre o Time-Weighted Return!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco inicial de <strong>Quantitative Methods</strong> aborda o valor do dinheiro no tempo e a mensuração de retornos de portfólios:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Componentes da taxa de juros (r):</strong> <code>Real Risk-Free Rate + Inflation Premium + Default Risk Premium + Liquidity Premium + Maturity Premium</code>.</li>
+            <li><strong>Média Aritmética vs. Geométrica vs. Harmônica:</strong> A desigualdade matemática sempre respeita: <code>Média Aritmética ≥ Média Geométrica ≥ Média Harmônica</code> (usada para preço médio em compras periódicas / Dollar-Cost Averaging).</li>
+            <li><strong>TWR vs. MWR:</strong> O TWR encadeia geometricamente os retornos de cada período; o MWR iguala o VPL dos aportes e resgates a zero.</li>
+          </ul>
+        `,
+        traps: [
+          "Usar a média aritmética em vez da média harmônica quando o investidor compra o mesmo valor financeiro (ex: R$ 1.000 por mês) de uma ação a preços diferentes.",
+          "Esquecer que a média geométrica é usada para projetar riqueza acumulada de múltiplos períodos, enquanto a média aritmética estima o retorno esperado de um único período futuro."
+        ],
+        formulas: [
+          { label: "Effective Annual Rate (EAR)", code: "EAR = [1 + (r_nominal / m)]^m - 1" },
+          { label: "Relação das Médias", code: "R_Geométrica ≈ R_Aritmética - (Variância / 2)" },
+          { label: "Média Harmônica (Preço Médio)", code: "X_H = n / Σ(1 / X_i)" }
+        ],
+        glossary: [
+          { en: "Time-Weighted Rate of Return (TWR)", pt: "Retorno ponderado pelo tempo (isento do efeito de aportes/saques)" },
+          { en: "Money-Weighted Rate of Return (MWR)", pt: "Retorno ponderado pelo dinheiro (equivalente à TIR / IRR)" },
+          { en: "Harmonic Mean", pt: "Média harmônica (usada em compras periódicas de valor fixo)" }
+        ],
+        questions: [
+          {
+            id: "q-m2-1",
+            stem: "Um investidor aplica US$ 1.000 todo mês nas ações da Empresa Y. No mês 1, a ação custava US$ 20; no mês 2, custava US$ 25; e no mês 3, custava US$ 50. Qual é o custo médio por ação pago pelo investidor (calculado pela média harmônica)?",
+            options: [
+              { letter: "A", text: "US$ 27,27", correct: true, explanation: "POR QUE É CORRETA: Como ele investiu o mesmo valor em dólares por mês, aplicamos a Média Harmônica: 3 / (1/20 + 1/25 + 1/50) = 3 / (0,05 + 0,04 + 0,02) = 3 / 0,11 = US$ 27,27." },
+              { letter: "B", text: "US$ 31,67", correct: false, explanation: "POR QUE É FALSA: US$ 31,67 é a média aritmética simples (20+25+50)/3, que ignora que ele comprou mais ações quando o preço estava barato em US$ 20." },
+              { letter: "C", text: "US$ 29,24", correct: false, explanation: "POR QUE É FALSA: US$ 29,24 é a média geométrica, que serve para retornos compostos, não para preço médio de aquisição." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "m2-quant-2",
+        macro: "Macro 2: Métodos Quantitativos (6–9%)",
+        group: "Grupo 2.2: Probabilidade, Hipóteses e Regressão",
+        title: "2.2 Teorema de Bayes, Teste de Hipóteses (Erros Tipo I/II) & Regressão Linear",
+        weight: "6–9%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👩‍💼 Analista Sênior •Inferência Estatística na Prova",
+            heading: "Erros Tipo I e II, P-Value e Regressão Linear",
+            bullets: [
+              "Erro Tipo I (Alpha / Nível de Significância): Rejeitar a Hipótese Nula (H0) quando ela na verdade era VERDADEIRA (falso positivo).",
+              "Erro Tipo II (Beta): Não rejeitar a Hipótese Nula (H0) quando ela na verdade era FALSA. O Poder do Teste (Power of a Test) é igual a 1 - Beta!",
+              "Regra de Ouro do P-Value: Se P-Value < Alpha (nível de significância), você REJEITA a Hipótese Nula (H0)!"
+            ],
+            visualFormula: "DECISÃO RÁPIDA DE PROVA:\n• P-Value < Alpha ➔ REJEITA H0 (Resultado Estatisticamente Significativo)\n• Poder do Teste = 1 - P(Erro Tipo II)\n\nCOEFICIENTE DE DETERMINAÇÃO (R²):\nR² = Explicado (RSS) / Total (TSS)\n(Em regressão simples de 1 variável, R² = r²)",
+            examTip: "Para diminuir a probabilidade do Erro Tipo I e do Erro Tipo II simultaneamente, a única saída é AUMENTAR o tamanho da amostra (n)!",
+            narration: "Em Teste de Hipóteses, decore esta frase para nunca errar: se o P-Value é baixo, a hipótese nula vai para baixo! Ou seja, quando o P-Value é menor que o nível de significância Alfa, você rejeita H zero. E lembre-se: cometer o Erro Tipo um é rejeitar uma H zero verdadeira, e a probabilidade de cometer esse erro é exatamente igual ao Alfa!"
+          }
+        ],
+        resumoHTML: `
+          <p>A parte final de <strong>Quantitative Methods</strong> foca em probabilidade condicional, inferência e regressão linear simples:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Fórmula de Bayes:</strong> Atualiza a probabilidade a priori de um evento quando chega uma nova informação: <code>P(Evento | Info) = [P(Info | Evento) × P(Evento)] / P(Info)</code>.</li>
+            <li><strong>Coeficiente de Variação (CV):</strong> Mede o risco por unidade de retorno: <code>CV = Desvio Padrão (s) / Média (X̄)</code>. Quanto menor o CV, menor o risco relativo.</li>
+            <li><strong>Regressão Linear Simples (Y = b0 + b1·X):</strong> O coeficiente angular é <code>b1 = Cov(X,Y) / Var(X)</code>. O <em>R-squared (R²)</em> mede a fração da variação de Y explicada por X.</li>
+          </ul>
+        `,
+        traps: [
+          "Inverter a fórmula do Coeficiente de Variação (CV é Desvio Padrão dividido pela Média; o inverso é o retorno por risco estilo Sharpe).",
+          "Esquecer que para testar uma hipótese do tipo 'maior que' (ex: retorno > 5%), a condição 'maior que' vai sempre na Hipótese Alternativa (Ha)!"
+        ],
+        formulas: [
+          { label: "Coefficient of Variation (CV)", code: "CV = Standard Deviation (s) / Sample Mean (X̄)" },
+          { label: "Erro Padrão da Média", code: "s_x̄ = s / √n" },
+          { label: "Slope da Regressão (b1)", code: "b1 = Cov(X, Y) / Var(X) = r × (s_Y / s_X)" }
+        ],
+        glossary: [
+          { en: "Type I Error (Significance Level α)", pt: "Erro Tipo I: Rejeitar uma hipótese nula verdadeira" },
+          { en: "Power of a Test (1 - β)", pt: "Poder do teste: Probabilidade de rejeitar corretamente uma H0 falsa" },
+          { en: "Heteroskedasticity", pt: "Variância dos resíduos não é constante (invalida os erros-padrão e testes t)" }
+        ],
+        questions: [
+          {
+            id: "q-m2-2",
+            stem: "Um analista testa a hipótese nula de que o retorno médio de uma estratégia é igual a zero (H0: μ = 0) usando um nível de significância (α) de 5%. O p-value encontrado no teste é de 0,018 (1,8%). Qual é a decisão correta e qual a definição do Poder do Teste?",
+            options: [
+              { letter: "A", text: "Rejeitar H0, pois p-value (1,8%) < α (5%); o Poder do Teste é a probabilidade de rejeitar corretamente uma H0 falsa.", correct: true, explanation: "POR QUE É CORRETA: Sempre que p-value < α, rejeitamos H0. Além disso, o Poder do Teste (1 - β) mede a probabilidade de rejeitar H0 quando ela é de fato falsa." },
+              { letter: "B", text: "Não rejeitar H0, pois p-value < α; o Poder do Teste é igual ao nível de significância α.", correct: false, explanation: "POR QUE É FALSA: Quando p-value < α nós rejeitamos H0, e α é a probabilidade do Erro Tipo I, não o Poder do Teste." },
+              { letter: "C", text: "Rejeitar H0; o Poder do Teste é a probabilidade de rejeitar uma H0 verdadeira.", correct: false, explanation: "POR QUE É FALSA: Rejeitar uma H0 verdadeira é a definição de Erro Tipo I (α), e não Poder do Teste." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 3: ECONOMICS (6–9%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m3-econ-1",
+        macro: "Macro 3: Economia (6–9%)",
+        group: "Grupo 3.1: Microeconomia, Macroeconomia e Câmbio",
+        title: "3.1 Estruturas de Mercado, Política Monetária/Fiscal & Taxas de Câmbio",
+        weight: "6–9%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Estruturas de Mercado e Lucro",
+            heading: "Concorrência Perfeita, Concorrência Monopolística, Oligopólio e Monopólio",
+            bullets: [
+              "Regra universal de maximização de lucro para QUALQUER empresa: produzir onde Receita Marginal iguala Custo Marginal (MR = MC).",
+              "No Longo Prazo, tanto na Concorrência Perfeita quanto na Concorrência Monopolística, o Lucro Econômico é ZERO (devido à ausência de barreiras à entrada).",
+              "Em Oligopólios, usamos o índice Herfindahl-Hirschman (HHI = soma dos quadrados dos market shares) para medir concentração para fusões."
+            ],
+            visualFormula: "CONDIÇÃO DE FECHAMENTO (SHUTDOWN POINT):\n• Curto Prazo: Fechar se Preço < Custo Variável Médio (P < AVC)\n• Longo Prazo: Sair se Preço < Custo Total Médio (P < ATC)\n\nPARIDADE COBERTA DE JUROS (CÂMBIO FORWARD):\nF / S = (1 + r_Price) / (1 + r_Base)",
+            examTip: "Na cotação de câmbio do CFA (Price/Base, ex: BRL/USD), a moeda que tem a taxa de juros MAIS ALTA negocia com DESCONTO no mercado a termo (Forward Discount)!",
+            narration: "Em Economia, vamos conectar os três temas que mais caem: primeiro, qualquer empresa maximiza lucro onde Receita Marginal é igual ao Custo Marginal, e fecha as portas no curto prazo se o preço cair abaixo do Custo Variável Médio. Segundo, em Câmbio, grave a convenção do CFA: em uma cotação Price sobre Base, o país que tem a taxa de juros mais alta terá sua moeda negociada com desconto no contrato a termo Forward!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco de <strong>Economics</strong> combina estruturas microeconômicas, ciclos de negócios e finanças internacionais:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Estruturas de Mercado:</strong> Concorrência Perfeita (Preço = MR = MC), Concorrência Monopolística (diferenciação por marca/marketing, lucro econômico zero no longo prazo), Oligopólio (alta barreira, interdependência estratégica / Dilema do Prisioneiro) e Monopólio (barreira total, poder de preço).</li>
+            <li><strong>Política Monetária vs. Fiscal:</strong> Quando ambas são expansionistas, o PIB agregado cresce e as taxas de juros tendem a subir ou ficar indeterminadas; se a Monetária é restritiva e a Fiscal é expansionista, os juros sobem fortemente.</li>
+            <li><strong>Câmbio (Price/Base):</strong> Taxa de câmbio real = <code>Spot × (CPI_Base / CPI_Price)</code>.</li>
+          </ul>
+        `,
+        traps: [
+          "Confundir o ponto de Breakeven (Preço = Custo Total Médio / ATC) com o ponto de Shutdown no curto prazo (Preço < Custo Variável Médio / AVC).",
+          "Inverter Base Currency e Price Currency na fórmula de Paridade de Taxa de Juros: o numerador usa sempre (1 + r_Price) e o denominador (1 + r_Base)."
+        ],
+        formulas: [
+          { label: "Multiplicador Fiscal", code: "Multiplier = 1 / [1 - MPC × (1 - t)]" },
+          { label: "Forward Exchange Rate (CIRP)", code: "Forward = Spot × [(1 + r_Price) / (1 + r_Base)]" },
+          { label: "Condição de Marshall-Lerner", code: "Desvalorização melhora Balança Comercial se (ω_X·ε_X + ω_M·(ε_M - 1)) > 0" }
+        ],
+        glossary: [
+          { en: "Average Variable Cost (AVC)", pt: "Custo variável médio (piso para operar no curto prazo)" },
+          { en: "Price / Base Currency Quote", pt: "Cotação Preço/Base (ex: 5,00 BRL/USD tem USD como Base e BRL como Price)" },
+          { en: "Crowding-out effect", pt: "Efeito deslocamento: déficit público eleva juros e reduz investimento privado" }
+        ],
+        questions: [
+          {
+            id: "q-m3-1",
+            stem: "A taxa de câmbio à vista (Spot) é de 5,00 BRL/USD (onde BRL é a Price Currency e USD é a Base Currency). A taxa de juros livre de risco anual no Brasil é de 10,5% e nos EUA é de 5,0%. Pela Paridade Coberta da Taxa de Juros, qual é a taxa de câmbio a termo (Forward) de 1 ano?",
+            options: [
+              { letter: "A", text: "4,75 BRL/USD", correct: false, explanation: "POR QUE É FALSA: 4,75 inverteu a fração multiplicando por (1,05 / 1,105). Como o juro em BRL (Price) é maior, a taxa Forward BRL/USD deve ser numericamente maior que 5,00." },
+              { letter: "B", text: "5,26 BRL/USD", correct: true, explanation: "POR QUE É CORRETA: Aplicando F = S × (1 + r_Price) / (1 + r_Base) = 5,00 × (1 + 0,105) / (1 + 0,05) = 5,00 × 1,05238 = 5,26 BRL/USD." },
+              { letter: "C", text: "5,53 BRL/USD", correct: false, explanation: "POR QUE É FALSA: Multiplicou apenas por (1 + 0,105) esquecendo de dividir por (1 + r_Base) dos EUA." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 4: CORPORATE ISSUERS (6–9%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m4-corp-1",
+        macro: "Macro 4: Emissores Corporativos (6–9%)",
+        group: "Grupo 4.1: Governança, Capital Budgeting & WACC",
+        title: "4.1 Governança Corporativa, NPV vs. IRR & Cost of Capital (WACC)",
+        weight: "6–9%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Decisão de Investimento e WACC",
+            heading: "NPV vs. IRR, WACC e Modigliani-Miller",
+            bullets: [
+              "Em projetos mutuamente excludentes (onde você só pode escolher A ou B), se houver conflito entre NPV e IRR, escolha SEMPRE o projeto com maior NPV (Valor Presente Líquido)!",
+              "No cálculo do WACC, a dívida gera benefício fiscal (Tax Shield), por isso multiplicamos o custo da dívida por (1 - alíquota de imposto t). Ações ordinárias e preferenciais NÃO têm benefício fiscal!",
+              "Teorema de Modigliani-Miller COM impostos: Adicionar dívida reduz o WACC e aumenta o valor da empresa em t × Dívida (até o ponto em que o custo de falência/Financial Distress supera o benefício fiscal)."
+            ],
+            visualFormula: "FÓRMULA OFICIAL DO WACC:\nWACC = (w_d × r_d × (1 - t)) + (w_p × r_p) + (w_e × r_e)\n\nDESALAVANCAR E REALAVANCAR BETA (PURE-PLAY):\n1. β_Asset = β_Equity_Comp / [1 + (1 - t) × (D/E)_Comp]\n2. β_Project = β_Asset × [1 + (1 - t) × (D/E)_Alvo]",
+            examTip: "Ao calcular o NPV de um projeto novo, NUNCA inclua Sunk Costs (custos já gastos no passado, como pesquisa de mercado prévia) e SEMPRE inclua Custos de Oportunidade e Externalidades (Canibalização)!",
+            narration: "Em Corporate Issuers, atenção a três regras certeiras de prova: primeiro, se o VPL e a TIR discordarem ao comparar dois projetos mutuamente excludentes, o VPL vence sempre, porque a TIR assume que os fluxos serão reinvestidos na própria TIR, enquanto o VPL usa o custo de capital realista da empresa. Segundo: no fluxo de caixa do projeto, ignore custos afundados como consultorias já pagas, mas desconte a canibalização de produtos existentes!"
+          }
+        ],
+        resumoHTML: `
+          <p>O módulo de <strong>Corporate Issuers</strong> avalia como as empresas alocam capital, gerenciam estrutura de dívida e alinham interesses entre gestores e acionistas:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Conflitos de Agência (Agency Relationships):</strong> Acionistas vs. Gestores (mitigado por conselho independente e remuneração variável de longo prazo) e Acionistas vs. Credores/Bondholders (acionistas preferem maior risco e dividendos; credores se protegem com <em>Debt Covenants</em>).</li>
+            <li><strong>Capital Budgeting:</strong> Inclua custos de oportunidade, capital de giro incremental (recuperado no final) e canibalização. Ignore <em>Sunk Costs</em> e custos de financiamento/juros (pois os juros já estão embutidos na taxa de desconto WACC!).</li>
+            <li><strong>Static Trade-Off Theory:</strong> O nível ótimo de dívida ocorre quando o benefício marginal do escudo fiscal iguala o custo marginal de <em>Financial Distress</em>.</li>
+          </ul>
+        `,
+        traps: [
+          "Deduzir despesas de juros no fluxo de caixa de avaliação do projeto e depois descontar pelo WACC (isso contaria o custo da dívida duas vezes!).",
+          "Multiplicar o custo de ações preferenciais (r_p) por (1 - t) no WACC (dividendos não são dedutíveis de imposto de renda corporativo)."
+        ],
+        formulas: [
+          { label: "WACC", code: "WACC = w_d·r_d·(1 - t) + w_p·r_p + w_e·r_e" },
+          { label: "Valor da Empresa Alavancada (MM c/ Imposto)", code: "V_L = V_U + (t × Debt)" },
+          { label: "Cash Conversion Cycle (CCC)", code: "CCC = DOH (Estoque) + DSO (Contas a Receber) - DPO (Fornecedores)" }
+        ],
+        glossary: [
+          { en: "Sunk Cost", pt: "Custo afundado / irrecuperável (deve ser ignorado no NPV)" },
+          { en: "Cannibalization / Externality", pt: "Perda de vendas em produtos atuais causada pelo novo projeto" },
+          { en: "Tax Shield of Debt", pt: "Benefício fiscal da dívida (juros abatem a base do imposto)" }
+        ],
+        questions: [
+          {
+            id: "q-m4-1",
+            stem: "Uma empresa tem estrutura de capital composta por 40% de Dívida e 60% de Patrimônio Líquido (Equity). O custo da dívida antes de impostos é de 10%, o custo do capital próprio (Equity) é de 15% e a alíquota de imposto corporativo é de 30%. Qual é o WACC da empresa?",
+            options: [
+              { letter: "A", text: "11,80%", correct: true, explanation: "POR QUE É CORRETA: WACC = (0,40 × 10% × (1 - 0,30)) + (0,60 × 15%) = (0,40 × 7,0%) + 9,0% = 2,80% + 9,00% = 11,80%." },
+              { letter: "B", text: "13,00%", correct: false, explanation: "POR QUE É FALSA: 13,00% esqueceu de aplicar o benefício fiscal (1 - 0,30) sobre o custo da dívida." },
+              { letter: "C", text: "9,10%", correct: false, explanation: "POR QUE É FALSA: Aplicou erroneamente o redutor de imposto (1 - 0,30) tanto sobre a dívida quanto sobre o Equity." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 5: FINANCIAL STATEMENT ANALYSIS - FSA (11–14%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m5-fsa-1",
+        macro: "Macro 5: Análise de Demonstrações Financeiras — FSA (11–14%)",
+        group: "Grupo 5.1: Fluxo de Caixa, DuPont ROE & Estoques",
+        title: "5.1 Decomposição DuPont do ROE (3-Way e 5-Way) & Fluxo de Caixa (IFRS vs. US GAAP)",
+        weight: "11–14%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • O Coração da Análise Financeira",
+            heading: "Decomposição DuPont do ROE (3-Way e 5-Way)",
+            bullets: [
+              "A identidade DuPont de 3 Fatores revela de onde vem a rentabilidade da empresa: Margem Líquida × Giro do Ativo × Alavancagem Financeira.",
+              "A identidade DuPont de 5 Fatores abre a Margem Líquida em três pedaços: Tax Burden (NI/EBT) × Interest Burden (EBT/EBIT) × Margem EBIT (EBIT/Receita).",
+              "Se o ROE de uma empresa subiu apenas porque a Alavancagem (Ativo/Patrimônio Líquido) explodiu enquanto a margem caiu, a qualidade desse ROE é baixa!"
+            ],
+            visualFormula: "DUPONT 3-WAY:\nROE = (Net Income / Revenue) × (Revenue / Avg Assets) × (Avg Assets / Avg Equity)\n\nDUPONT 5-WAY:\nROE = (NI/EBT) × (EBT/EBIT) × (EBIT/Rev) × (Rev/Assets) × (Assets/Equity)",
+            examTip: "Decore os nomes em inglês dos 2 primeiros termos do 5-Way: NI/EBT é o Tax Burden (quanto sobra após imposto) e EBT/EBIT é o Interest Burden (quanto sobra após juros)!",
+            narration: "A Análise DuPont cai em praticamente todas as provas de FSA! Na versão de três pontas, o ROE é o produto da Margem Líquida, do Giro do Ativo e da Alavancagem Financeira. Quando você multiplica os três, a Receita corta com a Receita e o Ativo corta com o Ativo, sobrando Lucro Líquido sobre Patrimônio Líquido. Já na versão de cinco pontas, nós separamos o efeito dos impostos, chamado Tax Burden, e o efeito dos juros, chamado Interest Burden!"
+          },
+          {
+            speaker: "👩‍💼 Analista Sênior • IFRS vs. US GAAP no Fluxo de Caixa",
+            heading: "Classificação de Juros e Dividendos (CFO, CFI e CFF)",
+            bullets: [
+              "Sob o US GAAP, a regra é rígida: Juros Pagos, Juros Recebidos e Dividendos Recebidos são SEMPRE Operacionais (CFO). Dividendos Pagos são SEMPRE Financiamento (CFF).",
+              "Sob o IFRS, há flexibilidade: Juros Pagos podem ser Operacionais (CFO) ou Financiamento (CFF); Juros e Dividendos Recebidos podem ser Operacionais (CFO) ou Investimento (CFI).",
+              "Free Cash Flow to the Firm (FCFF) a partir do CFO: FCFF = CFO + Interest × (1 - Tax Rate) - CapEx."
+            ],
+            visualFormula: "TABELA DE OURO (US GAAP):\n• Juros Pagos ➔ CFO (Operacional)\n• Juros/Div Recebidos ➔ CFO (Operacional)\n• Dividendos Pagos ➔ CFF (Financiamento)\n\nFÓRMULA DO FCFF:\nFCFF = CFO + Int·(1 - t) - FCInv (CapEx)",
+            examTip: "Ao calcular o FCFF partindo do CFO sob US GAAP, somamos de volta Interest × (1 - t) porque os juros pagos já haviam sido descontados dentro do CFO!",
+            narration: "Outro clássico absoluto de FSA é a diferença entre US GAAP e IFRS na Demonstração dos Fluxos de Caixa. No US GAAP não tem conversa: juros pagos, juros recebidos e dividendos recebidos entram todos no fluxo operacional, o CFO. Apenas os dividendos pagos aos acionistas saem pelo fluxo de financiamento, o CFF!"
+          }
+        ],
+        resumoHTML: `
+          <p>Este módulo central de <strong>Financial Statement Analysis (FSA)</strong> cobre a decomposição de rentabilidade e os fluxos de caixa livres:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>DuPont 3-Way:</strong> <code>ROE = Net Profit Margin × Asset Turnover × Financial Leverage</code>.</li>
+            <li><strong>DuPont 5-Way:</strong> <code>ROE = Tax Burden (NI/EBT) × Interest Burden (EBT/EBIT) × EBIT Margin (EBIT/Rev) × Asset Turnover × Leverage</code>.</li>
+            <li><strong>Free Cash Flow to the Firm (FCFF):</strong> Fluxo disponível para todos os provedores de capital (credores e acionistas): <code>FCFF = CFO + Int(1 - t) - CapEx</code>.</li>
+            <li><strong>Free Cash Flow to Equity (FCFE):</strong> Fluxo disponível apenas aos acionistas: <code>FCFE = CFO - CapEx + Net Borrowing</code>.</li>
+          </ul>
+        `,
+        traps: [
+          "Somar Interest × (1 - t) no cálculo do FCFF quando a empresa reporta em IFRS e já classificou os juros pagos no fluxo de Financiamento (CFF) — nesse caso não se soma de volta no CFO!",
+          "Confundir Tax Burden (NI / EBT, que é igual a 1 - alíquota efetiva) com a própria alíquota de imposto."
+        ],
+        formulas: [
+          { label: "DuPont 3-Way", code: "ROE = (NI / Rev) × (Rev / Assets) × (Assets / Equity)" },
+          { label: "FCFF a partir do CFO", code: "FCFF = CFO + Interest·(1 - t) - CapEx" },
+          { label: "FCFE a partir do CFO", code: "FCFE = CFO - CapEx + Net Borrowing" }
+        ],
+        glossary: [
+          { en: "Tax Burden (NI / EBT)", pt: "Retenção pós-imposto (fração do lucro que sobra após IR)" },
+          { en: "Interest Burden (EBT / EBIT)", pt: "Retenção pós-juros (fração do EBIT que sobra após juros)" },
+          { en: "Free Cash Flow to the Firm (FCFF)", pt: "Fluxo de caixa livre para a firma (credores + acionistas)" }
+        ],
+        questions: [
+          {
+            id: "q-m5-1",
+            stem: "Uma empresa apresenta Margem EBIT de 20%, Interest Burden (EBT/EBIT) de 0,80, Tax Burden (NI/EBT) de 0,75, Giro do Ativo (Asset Turnover) de 1,5x e Alavancagem Financeira (Assets/Equity) de 2,0x. Pela decomposição DuPont de 5 fatores, qual é o ROE da companhia?",
+            options: [
+              { letter: "A", text: "18,0%", correct: false, explanation: "POR QUE É FALSA: 18,0% esqueceu de multiplicar pela Alavancagem Financeira de 2,0x (calculou apenas o ROA = 12% × 1,5 = 18%)." },
+              { letter: "B", text: "36,0%", correct: true, explanation: "POR QUE É CORRETA: Multiplicando os 5 fatores: ROE = 0,75 × 0,80 × 0,20 × 1,5 × 2,0 = 0,12 (Margem Líquida de 12%) × 1,5 × 2,0 = 0,36 = 36,0%." },
+              { letter: "C", text: "24,0%", correct: false, explanation: "POR QUE É FALSA: 24,0% esqueceu de multiplicar pelo Giro do Ativo de 1,5x (fez 12% × 2,0 = 24%)." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "m5-fsa-2",
+        macro: "Macro 5: Análise de Demonstrações Financeiras — FSA (11–14%)",
+        group: "Grupo 5.2: Estoques (FIFO vs. LIFO), Imobilizado e Impostos",
+        title: "5.2 Estoques (FIFO vs. LIFO com Inflação), Capitalização vs. Despesa & DTA/DTL",
+        weight: "11–14%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • O Clássico FIFO vs. LIFO na Inflação",
+            heading: "FIFO vs. LIFO em Ambiente de Preços Crescentes",
+            bullets: [
+              "O LIFO (Last-In, First-Out) é permitido apenas no US GAAP (proibido no IFRS).",
+              "Com inflação (preços subindo) e estoques estáveis/crescentes: o FIFO deixa os itens novos e mais caros no Estoque Final do Balanço, e joga os itens antigos e mais baratos no CMV (COGS).",
+              "Resultado na Inflação: FIFO tem MENOR COGS, MAIOR Lucro Líquido, MAIOR Imposto Pago e MAIOR Estoque no Balanço. Já o LIFO tem MAIOR Fluxo de Caixa Operacional (CFO) porque paga menos imposto!"
+            ],
+            visualFormula: "EM AMBIENTE DE INFLAÇÃO (PREÇOS SUBINDO):\n• Estoque Final no Balanço: FIFO > LIFO\n• Custo da Mercadoria (COGS): LIFO > FIFO\n• Lucro Líquido (Net Income): FIFO > LIFO\n• Caixa Operacional (CFO): LIFO > FIFO (economiza imposto!)\n\nCONVERSÃO LIFO ➔ FIFO:\nInventory_FIFO = Inventory_LIFO + LIFO Reserve",
+            examTip: "Pergunta campeã de prova: Qual método gera maior Fluxo de Caixa (Cash Flow) na inflação? É o LIFO, porque o maior COGS reduz o lucro tributável e economiza imposto em dinheiro!",
+            narration: "Preste muita atenção na comparação entre FIFO e LIFO quando há inflação! No FIFO, o primeiro que entrou é o primeiro que sai, então você baixa para o custo os produtos antigos que custaram barato, tendo um lucro contábil maior. Só que quem tem lucro contábil maior paga mais imposto de renda! Por isso, na inflação, o LIFO tem lucro menor, mas tem Fluxo de Caixa Operacional maior!"
+          }
+        ],
+        resumoHTML: `
+          <p>Este módulo aborda os ajustes contábeis de <strong>Estoques, Ativos de Longo Prazo e Impostos Diferidos</strong>:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Conversão LIFO para FIFO:</strong> <code>Estoque_FIFO = Estoque_LIFO + LIFO Reserve</code> e <code>COGS_FIFO = COGS_LIFO - Δ(LIFO Reserve)</code>.</li>
+            <li><strong>Capitalizar vs. Lançar como Despesa (Expensing):</strong> Capitalizar um gasto (ex: desenvolvimento de software) aumenta o Lucro Líquido inicial e aumenta o CFO (pois o gasto sai do CFO e vai para o CFI como CapEx).</li>
+            <li><strong>Impostos Diferidos (DTL vs. DTA):</strong> Usar depreciação acelerada no fisco e linear no balanço contábil gera um <em>Deferred Tax Liability (DTL)</em>, pois a empresa paga menos imposto hoje e pagará mais no futuro.</li>
+          </ul>
+        `,
+        traps: [
+          "Esquecer que o IFRS avalia estoques pelo menor valor entre Custo e Net Realizable Value (NRV) e PERMITE reversão de write-down; já o US GAAP (para LIFO/Retail) usa Lower of Cost or Market e PROÍBE reversão de write-down!",
+          "Dizer que o FIFO tem maior fluxo de caixa na inflação (falso: o FIFO paga mais imposto, logo tem menor caixa!)."
+        ],
+        formulas: [
+          { label: "Estoque Ajustado para FIFO", code: "FIFO Inventory = LIFO Inventory + LIFO Reserve" },
+          { label: "COGS Ajustado para FIFO", code: "FIFO COGS = LIFO COGS - (LIFO Reserve_t - LIFO Reserve_t-1)" }
+        ],
+        glossary: [
+          { en: "LIFO Reserve", pt: "Reserva LIFO (diferença entre o estoque pelo FIFO e pelo LIFO)" },
+          { en: "LIFO Liquidation", pt: "Venda de camadas antigas e baratas do estoque LIFO, inflando artificialmente o lucro" },
+          { en: "Deferred Tax Liability (DTL)", pt: "Passivo fiscal diferido (imposto contábil hoje > imposto fiscal pago hoje)" }
+        ],
+        questions: [
+          {
+            id: "q-m5-2",
+            stem: "Em um período de inflação persistente nos custos de matéria-prima e volumes de estoque crescentes, uma empresa que utiliza o método FIFO (em comparação a uma idêntica que utiliza LIFO) reportará:",
+            options: [
+              { letter: "A", text: "Maior Lucro Líquido (Net Income) e menor Fluxo de Caixa Operacional (CFO).", correct: true, explanation: "POR QUE É CORRETA: Na inflação, o FIFO reconhece os custos antigos mais baratos no COGS, gerando maior Lucro Líquido, maior pagamento de impostos e, consequentemente, menor Fluxo de Caixa Operacional (CFO)." },
+              { letter: "B", text: "Maior Custo das Mercadorias Vendidas (COGS) e maior Estoque Final.", correct: false, explanation: "POR QUE É FALSA: O FIFO tem maior Estoque Final, mas tem MENOR COGS (quem tem maior COGS na inflação é o LIFO)." },
+              { letter: "C", text: "Maior Lucro Líquido e maior Fluxo de Caixa Operacional (CFO).", correct: false, explanation: "POR QUE É FALSA: Como o FIFO gera maior lucro tributável, a empresa desembolsa mais dinheiro em impostos, reduzindo seu CFO em relação ao LIFO." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 6: EQUITY INVESTMENTS (11–14%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m6-equity-1",
+        macro: "Macro 6: Investimentos em Ações — Equity (11–14%)",
+        group: "Grupo 6.1: Mercados, Índices e Valuation de Ações",
+        title: "6.1 Eficiência de Mercado (EMH), Índices & Valuation (Gordon DDM e Múltiplos)",
+        weight: "11–14%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Valuation de Ações e Crescimento",
+            heading: "Gordon Growth Model (DDM), Taxa g e Múltiplo P/E Justificado",
+            bullets: [
+              "Modelo de Crescimento Constante de Gordon: V0 = D1 / (r - g). Atenção: o numerador é SEMPRE o dividendo do próximo ano D1 = D0 × (1 + g)!",
+              "De onde vem o crescimento sustentável (g)? Da fórmula fundamental: g = ROE × Retention Rate (b), onde b = 1 - Dividend Payout Ratio.",
+              "Hipótese de Mercado Eficiente (EMH): Na forma Semiforte (Semi-strong), preços já refletem todos os dados públicos — portanto nem Análise Técnica nem Análise Fundamentalista geram alfa anormal consistente."
+            ],
+            visualFormula: "MODELO DE GORDON (DDM):\nV_0 = [D_0 × (1 + g)] / (r - g) = D_1 / (r - g)\n\nTAXA DE CRESCIMENTO SUSTENTÁVEL (g):\ng = ROE × (1 - Payout Ratio)\n\nLEADING JUSTIFIED P/E:\nP_0 / E_1 = (1 - b) / (r - g)",
+            examTip: "Na prova, eles sempre te dão o dividendo que acabou de ser pago hoje (D0) para ver se você esquece de multiplicar por (1 + g) antes de dividir por (r - g)!",
+            narration: "Em Equity Investments, a fórmula campeã de cobrança é o Modelo de Gordon: Valor da ação hoje é igual a D um dividido por R menos G. Cuidado redobrado: se o enunciado disser que a empresa acabou de pagar um dividendo de dois dólares, esse é o D zero! Você precisa multiplicar dois dólares por um mais G para achar o D um antes de dividir por R menos G!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco de <strong>Equity Investments</strong> cobre funcionamento de mercados, alavancagem em margem, construção de índices e valuation:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Compra em Margem (Margin Call):</strong> O preço de gatilho da chamada de margem é <code>P_Call = P_0 × [(1 - Initial Margin) / (1 - Maintenance Margin)]</code>.</li>
+            <li><strong>Índices de Ações:</strong> <em>Price-Weighted</em> (viés para ações com preço nominal alto; um split 2-por-1 exige ajustar o divisor), <em>Market-Cap Weighted</em> (viés para mega-caps) e <em>Equal-Weighted</em> (exige rebalanceamento constante).</li>
+            <li><strong>Formas de Eficiência (EMH):</strong> Fraca (invalida Análise Técnica), Semiforte (invalida Técnica e Fundamentalista) e Forte (invalida até Insider Trading).</li>
+          </ul>
+        `,
+        traps: [
+          "Usar D0 em vez de D1 = D0 × (1 + g) no numerador do Modelo de Gordon.",
+          "Confundir Retention Rate (b) com Dividend Payout Ratio (1 - b) ao calcular g = ROE × b."
+        ],
+        formulas: [
+          { label: "Gordon Growth Model", code: "V_0 = D_1 / (r - g) = [D_0 × (1 + g)] / (r - g)" },
+          { label: "Sustainable Growth Rate (g)", code: "g = ROE × Retention Rate (b)" },
+          { label: "Margin Call Price", code: "P_Call = P_0 × [(1 - IM) / (1 - MM)]" }
+        ],
+        glossary: [
+          { en: "Dividend Payout Ratio", pt: "Percentual do lucro líquido distribuído em dividendos" },
+          { en: "Retention Rate / Plowback Ratio (b)", pt: "Taxa de retenção de lucros (1 - Payout)" },
+          { en: "Semi-Strong Form Efficiency", pt: "Eficiência semiforte (preços já refletem toda informação pública)" }
+        ],
+        questions: [
+          {
+            id: "q-m6-1",
+            stem: "Uma empresa acabou de pagar um dividendo anual (D0) de US$ 2,00 por ação. Ela possui um ROE estável de 15% e distribui 60% do seu lucro em dividendos (Payout Ratio = 60%). Se o retorno exigido pelos acionistas (r) é de 11%, qual é o valor intrínseco da ação pelo Modelo de Gordon?",
+            options: [
+              { letter: "A", text: "US$ 40,00", correct: false, explanation: "POR QUE É FALSA: US$ 40,00 usou D0 = 2,00 direto no numerador (2,00 / 0,05 = 40,00), esquecendo de multiplicar por (1 + g) para encontrar D1." },
+              { letter: "B", text: "US$ 42,40", correct: true, explanation: "POR QUE É CORRETA: Primeiro achamos b = 1 - 0,60 = 0,40. Logo, g = ROE × b = 15% × 0,40 = 6,0%. Então D1 = 2,00 × (1 + 0,06) = US$ 2,12. Finalmente, V0 = 2,12 / (0,11 - 0,06) = 2,12 / 0,05 = US$ 42,40." },
+              { letter: "C", text: "US$ 111,50", correct: false, explanation: "POR QUE É FALSA: Calculou g erroneamente multiplicando ROE pelo Payout (15% × 60% = 9%) em vez da taxa de retenção b (40%)." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 7: FIXED INCOME (11–14%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m7-fi-1",
+        macro: "Macro 7: Renda Fixa — Fixed Income (11–14%)",
+        group: "Grupo 7.1: Precificação, Spot/Forward Rates, Duration & Convexity",
+        title: "7.1 Precificação (Full vs. Flat Price), Macaulay/Modified/Effective Duration & Convexidade",
+        weight: "11–14%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • Duration e Convexidade Completas",
+            heading: "Macaulay, Modified, Effective Duration & Convexity",
+            bullets: [
+              "Full Price (Dirty Price) = Flat Price (Clean Price) + Accrued Interest (Juros Corridos). Na tela da Bloomberg cota-se o Flat Price, mas na liquidação financeira você paga o Full Price!",
+              "Modified Duration: %ΔPreço ≈ -ModDur × ΔYield. Para títulos com opções embutidas (Callable/Putable), use SEMPRE Effective Duration!",
+              "Ajuste de Convexidade: %ΔPreço ≈ (-ModDur × Δy) + [0.5 × Convexity × (Δy)²]."
+            ],
+            visualFormula: "FÓRMULA COMPLETA DE SENSIBILIDADE DE PREÇO:\n%ΔFullPrice ≈ (-ModDur × ΔYield) + [0.5 × Convexity × (ΔYield)²]\n\nIMUNIZAÇÃO DE PASSIVO ÚNICO:\nIgualar Macaulay Duration ao Horizonte de Investimento (MacDur = H)",
+            examTip: "Nunca esqueça de multiplicar a Convexidade por 0,5 (meio) e de usar Effective Duration quando o título for Callable ou Putable!",
+            narration: "Em Renda Fixa, domine a equação completa de variação de preço: variação percentual é menos Modified Duration vezes a mudança no yield, mais meio vezes a Convexidade vezes a mudança no yield ao quadrado. E lembre-se: em carteiras imunizadas contra risco de juros, nós igualamos a Macaulay Duration exatamente ao horizonte do passivo!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco de <strong>Fixed Income</strong> é um dos três pesos-pesados do CFA Level 1:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Relação Preço-Yield:</strong> Se Taxa de Cupom &lt; YTM, o título negocia com Desconto (Discount); se Cupom &gt; YTM, negocia com Ágio (Premium).</li>
+            <li><strong>Duration Gap:</strong> <code>Duration Gap = Macaulay Duration - Investment Horizon</code>. Se positivo, o investidor corre risco de alta nos juros (Risco de Preço domina); se negativo, corre risco de queda nos juros (Risco de Reinvestimento domina).</li>
+            <li><strong>Risco de Crédito:</strong> <code>Expected Loss = Probability of Default (POD) × Loss Given Default (LGD)</code>.</li>
+          </ul>
+        `,
+        traps: [
+          "Esquecer o fator 0,5 na fórmula de Convexidade.",
+          "Achar que o Flat Price inclui os juros corridos (quem inclui os juros corridos é o Full/Dirty Price)."
+        ],
+        formulas: [
+          { label: "Full Price vs. Flat Price", code: "Full Price = Flat Price + Accrued Interest" },
+          { label: "Modified Duration", code: "ModDur = MacDur / (1 + YTM/m)" },
+          { label: "Duration + Convexity Impact", code: "%ΔP ≈ (-ModDur × Δy) + [0.5 × Conv × (Δy)²]" }
+        ],
+        glossary: [
+          { en: "Flat Price (Clean Price)", pt: "Preço limpo cotado sem juros corridos" },
+          { en: "Full Price (Dirty Price)", pt: "Preço cheio de liquidação (inclui juros corridos)" },
+          { en: "Effective Duration", pt: "Duration efetiva para títulos com opção embutida (Callable/Putable)" }
+        ],
+        questions: [
+          {
+            id: "q-m7-1",
+            stem: "Um título tem Modified Duration de 6,0 e Convexidade anual de 60,0. Se o seu Yield-to-Maturity subir 100 bps (+1,00% ou +0,01), qual é a variação percentual aproximada no seu preço cheio (Full Price)?",
+            options: [
+              { letter: "A", text: "-6,00%", correct: false, explanation: "POR QUE É FALSA: -6,00% considera apenas o efeito linear da Modified Duration, ignorando o efeito positivo da Convexidade." },
+              { letter: "B", text: "-5,70%", correct: true, explanation: "POR QUE É CORRETA: Efeito Duration = -6,0 × 0,01 = -6,00%. Efeito Convexidade = +0,5 × 60 × (0,01)² = +30 × 0,0001 = +0,30%. Total = -6,00% + 0,30% = -5,70%." },
+              { letter: "C", text: "-5,40%", correct: false, explanation: "POR QUE É FALSA: Esqueceu de multiplicar a Convexidade por 0,5 (somou +0,60% em vez de +0,30%)." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 8: DERIVATIVES (5–8%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m8-deriv-1",
+        macro: "Macro 8: Derivativos (5–8%)",
+        group: "Grupo 8.1: Forwards, Futures, Swaps & Opções",
+        title: "8.1 Precificação a Termo (Forward) & Paridade Put-Call (Put-Call Parity)",
+        weight: "5–8%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • A Equação Mais Importante de Derivativos",
+            heading: "Put-Call Parity (Fiduciary Call = Protective Put)",
+            bullets: [
+              "A Paridade Put-Call conecta o preço de uma Call Europeia (c0), uma Put Europeia (p0), o ativo-objeto (S0) e um título livre de risco de valor de face X.",
+              "Fórmula: S0 + p0 = c0 + X / (1 + r)^T.",
+              "Lado Esquerdo (S0 + p0): É a famosa PROTECTIVE PUT (Ação + Put de seguro). Lado Direito (c0 + PV(X)): É a FIDUCIARY CALL (Call + Caixa investido em renda fixa)."
+            ],
+            visualFormula: "PARIDADE PUT-CALL (OPÇÕES EUROPEIAS):\nS_0 + p_0 = c_0 + [X / (1 + r)^T]\n\nATIVOS SINTÉTICOS (ISOLANDO NA EQUAÇÃO):\n• Ação Sintética: S_0 = c_0 - p_0 + PV(X)\n• Put Sintética:  p_0 = c_0 - S_0 + PV(X)\n• Call Sintética: c_0 = S_0 + p_0 - PV(X)",
+            examTip: "Para criar uma posição sintética na prova, lembre que o sinal de '+' significa COMPRAR (Long) e o sinal de '-' significa VENDER (Short)!",
+            narration: "Em Derivativos, se você dominar a Paridade Put-Call, você garante metade das questões da prova! Grave os dois lados da balança: Ação mais Put, chamada Protective Put, tem exatamente o mesmo pagamento no vencimento que Call mais Título Livre de Risco, chamada Fiduciary Call. A partir dessa igualdade, basta passar um item para o outro lado trocando o sinal para montar qualquer ativo sintético!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco de <strong>Derivatives</strong> foca em compromissos firmes (Forwards, Futures, Swaps) e direitos contingentes (Opções):</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Preço a Termo (Forward Price):</strong> <code>F_0(T) = [S_0 - PV(Benefícios) + PV(Custos)] × (1 + r)^T</code>. No início do contrato (t=0), o Valor (Value) do Forward é ZERO, mas o Preço (Price) é F0(T).</li>
+            <li><strong>Fatores que aumentam o valor de Call e Put:</strong> Maior volatilidade aumenta TANTO a Call quanto a Put. Já a alta na taxa de juros livre de risco (r) aumenta a Call e reduz a Put!</li>
+            <li><strong>Put-Call Parity:</strong> <code>S_0 + p_0 = c_0 + X / (1 + r)^T</code>.</li>
+          </ul>
+        `,
+        traps: [
+          "Confundir o Preço do Forward F0(T) com o Valor do contrato no instante inicial V0 (no instante zero, nenhum dinheiro troca de mãos, logo o Valor inicial V0 é sempre ZERO!).",
+          "Achar que a alta na taxa de juros livre de risco (r) aumenta o valor da Put (falso: juros mais altos reduzem o valor presente do strike X, barateando a Put e encarecendo a Call)."
+        ],
+        formulas: [
+          { label: "Put-Call Parity", code: "S_0 + p_0 = c_0 + X / (1 + r)^T" },
+          { label: "Forward Price", code: "F_0(T) = S_0 × (1 + r)^T (sem custos/benefícios)" }
+        ],
+        glossary: [
+          { en: "Protective Put (S0 + p0)", pt: "Carteira protegida: Ação comprada + Put comprada" },
+          { en: "Fiduciary Call (c0 + PV(X))", pt: "Call fiduciária: Call comprada + Título zero-cupom de valor X" },
+          { en: "Convenience Yield", pt: "Benefício não-monetário de manter uma commodity física em estoque" }
+        ],
+        questions: [
+          {
+            id: "q-m8-1",
+            stem: "Uma ação que não paga dividendos é negociada hoje a S0 = US$ 50,00. Uma opção de compra europeia (Call) com strike X = US$ 50,00 e vencimento em 1 ano custa c0 = US$ 6,00. Se a taxa livre de risco anual é de 5,0% (de modo que PV(X) = 50 / 1,05 = US$ 47,62), qual deve ser o preço da opção de venda europeia (Put) pela Paridade Put-Call?",
+            options: [
+              { letter: "A", text: "US$ 3,62", correct: true, explanation: "POR QUE É CORRETA: Pela Put-Call Parity, p0 = c0 + PV(X) - S0 = 6,00 + 47,62 - 50,00 = US$ 3,62." },
+              { letter: "B", text: "US$ 6,00", correct: false, explanation: "POR QUE É FALSA: Assumiu que Call e Put no dinheiro (ATM) têm o mesmo preço, esquecendo o valor do dinheiro no tempo sobre o strike PV(X)." },
+              { letter: "C", text: "US$ 8,38", correct: false, explanation: "POR QUE É FALSA: Inverteu o sinal na fórmula (fez 6,00 + 50,00 - 47,62 = 8,38)." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 9: ALTERNATIVE INVESTMENTS (7–10%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m9-alt-1",
+        macro: "Macro 9: Investimentos Alternativos (7–10%)",
+        group: "Grupo 9.1: Private Equity, Real Estate & Hedge Funds",
+        title: "9.1 Cálculo de Taxas de Hedge Funds (2/20, High-Water Mark e Hurdle Rate) & Private Equity",
+        weight: "7–10%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👩‍💼 Analista Sênior • A Conta que Sempre Cai em Alternativos",
+            heading: "Cálculo de Taxa de Administração e Performance (Hedge Funds)",
+            bullets: [
+              "Estrutura 2 e 20: 2% de Management Fee (sobre o AUM final ou inicial) + 20% de Incentive/Performance Fee sobre o lucro que superar a Hurdle Rate.",
+              "Hard Hurdle Rate: O gestor só cobra 20% sobre o que EXCEDER a meta (ex: se o fundo rendeu 15% e a Hard Hurdle é 5%, cobra 20% sobre 10%).",
+              "High-Water Mark (Marca d'Água): Se o fundo caiu de 100 para 85 no Ano 1, no Ano 2 ele só volta a cobrar taxa de performance na parcela que ultrapassar o pico histórico de 100!"
+            ],
+            visualFormula: "INCENTIVE FEE COM HARD HURDLE:\n1. Deduzir Management Fee (se especificada 'net of management fee')\n2. Base de Performance = AUM_Final - AUM_Inicial - Hurdle_Amount\n3. Incentive Fee = 20% × Base de Performance\n\nHIGH-WATER MARK (HWM):\nSó há Incentive Fee se Novo Valor > HWM anterior!",
+            examTip: "Leia com lupa se o enunciado diz que a Incentive Fee é calculada 'independentemente' (sobre o ganho bruto) ou 'net of management fee' (após descontar a taxa de administração)!",
+            narration: "Em Investimentos Alternativos, toda prova traz uma questão numérica de taxas de Hedge Fund. Preste atenção em três detalhes: primeiro, se a Hurdle Rate é Hard, você subtrai a meta antes de aplicar os vinte por cento. Segundo, veja se a taxa de performance é calculada antes ou depois de descontar a taxa de administração. E terceiro, nunca pague taxa de performance abaixo da High-Water Mark!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco de <strong>Alternative Investments</strong> aborda ativos ilíquidos, estruturas de parcerias (GP vs. LP) e regras de remuneração:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>GP (General Partner) vs. LP (Limited Partner):</strong> O GP gere o fundo e tem responsabilidade ilimitada; os LPs entram com o capital e têm responsabilidade limitada ao valor comprometido.</li>
+            <li><strong>Private Equity (LBO vs. Venture Capital):</strong> No cálculo do <em>Waterfall</em> (distribuição de lucros), o <em>Deal-by-Deal (American)</em> paga performance ao GP mais cedo do que o <em>Total Return (European)</em>, que é mais favorável aos investidores (LPs).</li>
+            <li><strong>Real Estate (NOI Cap Rate):</strong> <code>Valor do Imóvel = Net Operating Income (NOI) / Cap Rate</code>.</li>
+          </ul>
+        `,
+        traps: [
+          "Cobrar taxa de performance quando o fundo teve lucro no ano, mas ainda não recuperou o topo histórico (High-Water Mark).",
+          "Confundir Soft Hurdle (onde, uma vez batida a meta, cobra-se sobre o lucro inteiro) com Hard Hurdle (onde se cobra apenas sobre o excesso acima da meta)."
+        ],
+        formulas: [
+          { label: "Incentive Fee (Hard Hurdle + Net of Mgmt)", code: "Inc Fee = %Perf × [Ganho Bruto - Mgmt Fee - Hurdle]" },
+          { label: "Direct Capitalization (Imóveis)", code: "Property Value = NOI_1 / Cap Rate" }
+        ],
+        glossary: [
+          { en: "High-Water Mark (HWM)", pt: "Cota máxima histórica (impede cobrar performance duas vezes pelo mesmo ganho)" },
+          { en: "Hard Hurdle Rate", pt: "Meta mínima que é deduzida antes de calcular a taxa de performance" },
+          { en: "Clawback Provision", pt: "Cláusula que obriga o gestor (GP) a devolver taxas de performance se negócios futuros derem prejuízo" }
+        ],
+        questions: [
+          {
+            id: "q-m9-1",
+            stem: "Um Hedge Fund inicia o ano com US$ 100 milhões sob gestão e termina o ano (antes de taxas) com US$ 120 milhões. O fundo cobra 2% de taxa de administração (calculada sobre o patrimônio final de US$ 120 milhões) e 20% de taxa de performance calculada após a taxa de administração (net of management fee) e acima de uma Hard Hurdle Rate de 5% (sobre os US$ 100 milhões iniciais). Qual é o retorno líquido percentual do investidor no ano?",
+            options: [
+              { letter: "A", text: "15,08%", correct: true, explanation: "POR QUE É CORRETA: 1) Mgmt Fee = 2% de 120M = US$ 2,40M. 2) Ganho líquido de Mgmt Fee = 20M - 2,40M = US$ 17,60M. 3) Descontando a Hard Hurdle de US$ 5,00M (5% de 100M), sobram US$ 12,60M. 4) Incentive Fee = 20% de 12,60M = US$ 2,52M. 5) Total de taxas = 2,40M + 2,52M = US$ 4,92M. Lucro líquido do investidor = 20M - 4,92M = US$ 15,08M (+15,08%)." },
+              { letter: "B", text: "14,60%", correct: false, explanation: "POR QUE É FALSA: Calculou a Incentive Fee sem descontar os US$ 2,40M da Management Fee da base de cálculo." },
+              { letter: "C", text: "16,08%", correct: false, explanation: "POR QUE É FALSA: Calculou a Management Fee de 2% sobre o patrimônio inicial (100M) em vez do patrimônio final (120M) pedido no enunciado." }
+            ]
+          }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // MACRO 10: PORTFOLIO MANAGEMENT (8–12%)
+      // -----------------------------------------------------------------------
+      {
+        id: "m10-port-1",
+        macro: "Macro 10: Gestão de Portfólio (8–12%)",
+        group: "Grupo 10.1: Teoria de Carteiras, CAPM, Índices & IPS",
+        title: "10.1 CAPM, Beta, Sharpe vs. Treynor vs. Alpha de Jensen & IPS",
+        weight: "8–12%",
+        completed: false,
+        slides: [
+          {
+            speaker: "👨‍🏫 Professor CFA • CAPM e Avaliação de Carteiras",
+            heading: "CAPM, Beta e os 4 Índices de Performance",
+            bullets: [
+              "Capital Asset Pricing Model (CAPM): E(Ri) = Rf + Beta × [E(Rm) - Rf]. O mercado só remunera o Risco Sistemático (Beta), pois o Risco Não-Sistemático pode ser eliminado via diversificação!",
+              "Índice de Sharpe e M²: Usam o DESVIO PADRÃO (Risco Total) no denominador — ideais quando a carteira representa 100% do patrimônio do investidor (não totalmente diversificada).",
+              "Índice de Treynor e Alpha de Jensen: Usam o BETA (Risco Sistemático) — ideais para avaliar um subportfólio dentro de uma carteira amplamente diversificada!"
+            ],
+            visualFormula: "FÓRMULA DO BETA:\nβ_i = Cov(R_i, R_m) / Var(R_m) = ρ_(i,m) × (σ_i / σ_m)\n\nOS 4 ÍNDICES DE PERFORMANCE:\n• Sharpe  = (R_p - R_f) / σ_p        [Usa Risco Total σ]\n• M²      = Sharpe_p × σ_m + R_f     [Em % anual]\n• Treynor = (R_p - R_f) / β_p        [Usa Risco Sistemático β]\n• Jensen  = R_p - [R_f + β_p(R_m - R_f)]",
+            examTip: "Decore como calcular o Beta a partir da correlação: Beta da ação é igual à Correlação com o mercado vezes o Desvio Padrão da ação dividido pelo Desvio Padrão do mercado!",
+            narration: "Para fechar os dez blocos do CFA Level um com chave de ouro: em Gestão de Portfólio, nunca confunda Sharpe com Treynor! O Índice de Sharpe divide o excesso de retorno pelo Desvio Padrão total da carteira. Já o Índice de Treynor e o Alfa de Jensen olham apenas para o Beta, que é o risco sistemático. E grave a fórmula do Beta que cai em toda prova: Correlação vezes o desvio padrão da ação dividido pelo desvio padrão do mercado!"
+          }
+        ],
+        resumoHTML: `
+          <p>O bloco de <strong>Portfolio Management</strong> integra toda a teoria de risco, retorno e planejamento de clientes:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Capital Allocation Line (CAL) vs. Security Market Line (SML):</strong> A CAL plota Retorno Esperado vs. Desvio Padrão (inclinação = Sharpe Ratio). A SML plota Retorno Esperado vs. Beta (inclinação = Market Risk Premium). Qualquer ativo cujo retorno esperado fique ACIMA da SML está subavaliado (<em>undervalued</em>, Alpha positivo = Compra!).</li>
+            <li><strong>Investment Policy Statement (IPS):</strong> Contém Objetivos de Risco e Retorno + Restrições (<em>Liquidity, Time Horizon, Tax Concerns, Legal/Regulatory, Unique Circumstances — LTTLU</em>).</li>
+          </ul>
+        `,
+        traps: [
+          "Dizer que uma ação posicionada ACIMA da Security Market Line (SML) está cara/overvalued (falso: se está acima da SML, ela entrega mais retorno do que o risco exige, logo está BARATA / Undervalued!).",
+          "Multiplicar pelo quadrado do desvio padrão (variância) em vez do desvio padrão na fórmula β = ρ × (σ_i / σ_m)."
+        ],
+        formulas: [
+          { label: "Beta do Ativo", code: "β_i = ρ_(i,m) × (σ_i / σ_m)" },
+          { label: "CAPM (Retorno Exigido)", code: "E(R_i) = R_f + β_i × [E(R_m) - R_f]" },
+          { label: "Alpha de Jensen", code: "α_p = R_p - [R_f + β_p × (R_m - R_f)]" }
+        ],
+        glossary: [
+          { en: "Systematic Risk (Non-diversifiable)", pt: "Risco sistemático de mercado medido pelo Beta" },
+          { en: "Security Market Line (SML)", pt: "Linha de Mercado de Títulos (gráfico do CAPM com Beta no eixo X)" },
+          { en: "Undervalued (Above SML)", pt: "Ativo subavaliado / barato (retorno esperado maior que o exigido pelo CAPM)" }
+        ],
+        questions: [
+          {
+            id: "q-m10-1",
+            stem: "Uma ação possui desvio padrão anual (σ_i) de 24%, enquanto o índice de mercado possui desvio padrão (σ_m) de 16%. A correlação (ρ) entre a ação e o mercado é de 0,75. Se a taxa livre de risco (Rf) é de 4,0% e o retorno esperado do mercado E(Rm) é de 10,0%, qual é o retorno esperado exigido para essa ação segundo o CAPM?",
+            options: [
+              { letter: "A", text: "10,75%", correct: true, explanation: "POR QUE É CORRETA: 1º Passo: Achamos o Beta = ρ × (σ_i / σ_m) = 0,75 × (24% / 16%) = 0,75 × 1,50 = 1,125. 2º Passo: Aplicamos o CAPM = 4,0% + 1,125 × (10,0% - 4,0%) = 4,0% + 1,125 × 6,0% = 4,0% + 6,75% = 10,75%." },
+              { letter: "B", text: "8,50%", correct: false, explanation: "POR QUE É FALSA: Usou apenas a correlação 0,75 como se fosse o Beta (4% + 0,75 × 6% = 8,50%), esquecendo de multiplicar pela razão dos desvios padrões (24%/16%)." },
+              { letter: "C", text: "13,00%", correct: false, explanation: "POR QUE É FALSA: Usou apenas a razão dos desvios (24/16 = 1,50) como Beta, esquecendo de multiplicar pela correlação 0,75." }
+            ]
+          }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. ESTADO DA APLICAÇÃO E PERSISTÊNCIA EM LOCALSTORAGE
+    // =========================================================================
+    const STORAGE_KEY_DB = "cfa_exec_pauloacichetto_v2_db";
+    const STORAGE_KEY_ANSWERS = "cfa_exec_pauloacichetto_v2_answers";
+    const STORAGE_KEY_API = "cfa_exec_pauloacichetto_gemini_key";
+
+    let curriculumDB = loadSavedCurriculum();
+    let activeTopicId = curriculumDB[0].id;
+    let activeSlideIndex = 0;
+    let isPlayingSpeech = false;
+    let answeredQuestions = JSON.parse(localStorage.getItem(STORAGE_KEY_ANSWERS) || "{}");
+
+    function loadSavedCurriculum() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY_DB);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length >= defaultCurriculumDB.length) {
+            return parsed;
+          }
+        }
+      } catch (e) {}
+      return JSON.parse(JSON.stringify(defaultCurriculumDB));
+    }
+
+    function saveStateToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY_DB, JSON.stringify(curriculumDB));
+        localStorage.setItem(STORAGE_KEY_ANSWERS, JSON.stringify(answeredQuestions));
+      } catch (e) {}
+    }
+
+    function getEffectiveApiKey() {
+      const savedKey = localStorage.getItem(STORAGE_KEY_API) || "";
+      return savedKey.trim();
+    }
+
+    function saveCustomApiKey() {
+      const val = document.getElementById('custom-gemini-key').value.trim();
+      localStorage.setItem(STORAGE_KEY_API, val);
+      const statusEl = document.getElementById('api-key-status');
+      statusEl.innerText = val ? "✓ Chave Pessoal Salva" : "Ambiente Padrão Ativo";
+    }
+
+    function getActiveTopic() {
+      return curriculumDB.find(t => t.id === activeTopicId) || curriculumDB[0];
+    }
+
+    // Renderiza a árvore completa com todos os 10 Blocos Macro
+    function renderSidebarTree() {
+      const container = document.getElementById('curriculum-tree');
+      const searchVal = (document.getElementById('sidebar-search')?.value || '').toLowerCase();
+      container.innerHTML = '';
+
+      document.getElementById('topic-counter-badge').innerText = `10 Macros • ${curriculumDB.length} Módulos`;
+
+      const macros = {};
+      curriculumDB.forEach(item => {
+        if (searchVal && !item.title.toLowerCase().includes(searchVal) && !item.macro.toLowerCase().includes(searchVal)) {
+          return;
+        }
+        if (!macros[item.macro]) macros[item.macro] = {};
+        if (!macros[item.macro][item.group]) macros[item.macro][item.group] = [];
+        macros[item.macro][item.group].push(item);
+      });
+
+      Object.keys(macros).forEach(macroName => {
+        const macroBlock = document.createElement('div');
+        macroBlock.className = 'space-y-1';
+
+        const macroHeader = document.createElement('div');
+        macroHeader.className = 'text-[11px] font-mono-code uppercase tracking-wider text-[#D4AF37] font-bold px-2 pt-2';
+        macroHeader.innerText = macroName;
+        macroBlock.appendChild(macroHeader);
+
+        Object.keys(macros[macroName]).forEach(groupName => {
+          macros[macroName][groupName].forEach(topic => {
+            const btn = document.createElement('button');
+            const isActive = topic.id === activeTopicId;
+            btn.className = `topic-item w-full text-left px-3 py-2 rounded-lg text-xs transition flex items-center justify-between gap-2 ${isActive ? 'active font-semibold' : 'text-[#D4D4D8] hover:bg-[#18181C]'}`;
+            btn.onclick = () => selectTopic(topic.id);
+
+            btn.innerHTML = `
+              <span class="truncate">${topic.title}</span>
+              <span class="text-[11px] font-mono-code ${topic.completed ? 'text-[#10B981] font-bold' : 'text-[#71717A]'} shrink-0">
+                ${topic.completed ? '✓' : `${topic.questions.length}Q`}
+              </span>
+            `;
+            macroBlock.appendChild(btn);
+          });
+        });
+
+        container.appendChild(macroBlock);
+      });
+
+      updateMasteryScoreUI();
+    }
+
+    function selectTopic(topicId) {
+      stopAllSpeech();
+      activeTopicId = topicId;
+      activeSlideIndex = 0;
+
+      const topic = getActiveTopic();
+      document.getElementById('active-breadcrumb').innerHTML = `${topic.macro.split('(')[0]} &gt; <span class="text-[#E5C158] font-semibold">${topic.title}</span>`;
+      document.getElementById('active-topic-title').innerText = topic.title;
+      document.getElementById('active-weight-badge').innerHTML = `Peso: <strong class="text-[#E5C158]">${topic.weight}</strong>`;
+
+      updateCompleteButtonUI(topic.completed);
+      renderSidebarTree();
+      renderSlideDeck();
+      renderResumoTab();
+      renderQuestionsTab();
+    }
+
+    function updateCompleteButtonUI(completed) {
+      const btn = document.getElementById('btn-complete-topic');
+      const icon = document.getElementById('complete-check-icon');
+      if (completed) {
+        btn.className = "text-xs px-3 py-1.5 rounded-lg border border-[#10B981] bg-[#10B981]/15 text-[#10B981] font-semibold flex items-center gap-1.5 transition";
+        icon.innerText = "✓";
+      } else {
+        btn.className = "text-xs px-3 py-1.5 rounded-lg border border-[#2A2A32] bg-[#1C1C21] hover:border-[#10B981] text-[#F5F2EB] flex items-center gap-1.5 transition";
+        icon.innerText = "○";
+      }
+    }
+
+    function markTopicCompleted() {
+      const topic = getActiveTopic();
+      topic.completed = !topic.completed;
+      saveStateToStorage();
+      updateCompleteButtonUI(topic.completed);
+      renderSidebarTree();
+    }
+
+    function switchMainTab(tabKey) {
+      ['video', 'resumo', 'questoes', 'github'].forEach(k => {
+        document.getElementById(`panel-${k}`).classList.toggle('hidden', k !== tabKey);
+        const btn = document.getElementById(`tab-btn-${k}`);
+        if (k === tabKey) {
+          btn.classList.add('active');
+          btn.classList.remove('text-[#A1A1AA]');
+        } else {
+          btn.classList.remove('active');
+          btn.classList.add('text-[#A1A1AA]');
+        }
+      });
+    }
+
+    // =========================================================================
+    // 3. ABA 1: ESTÚDIO DE VÍDEO-SLIDES & VOZ SINCRONIZADA
+    // =========================================================================
+    function renderSlideDeck() {
+      const topic = getActiveTopic();
+      const slides = topic.slides || [];
+      if (!slides.length) return;
+
+      const slide = slides[activeSlideIndex] || slides[0];
+      document.getElementById('slide-counter-pill').innerText = `SLIDE ${activeSlideIndex + 1} / ${slides.length}`;
+      document.getElementById('slide-speaker-badge').innerText = slide.speaker;
+      document.getElementById('slide-heading').innerText = slide.heading;
+
+      const bulletsEl = document.getElementById('slide-bullets');
+      bulletsEl.innerHTML = '';
+      slide.bullets.forEach(b => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2.5 leading-relaxed';
+        li.innerHTML = `<span class="text-[#D4AF37] font-bold mt-0.5">▸</span><span>${b}</span>`;
+        bulletsEl.appendChild(li);
+      });
+
+      document.getElementById('slide-visual-box').innerText = slide.visualFormula;
+      document.getElementById('slide-exam-tip').innerHTML = `<strong>💡 Dica de Prova:</strong> ${slide.examTip}`;
+      document.getElementById('slide-narration-text').innerText = `"${slide.narration}"`;
+
+      const dotsContainer = document.getElementById('slide-dots');
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all ${idx === activeSlideIndex ? 'w-6 bg-[#D4AF37]' : 'w-2 bg-[#3F3F46]'}`;
+        dot.onclick = () => {
+          stopAllSpeech();
+          activeSlideIndex = idx;
+          renderSlideDeck();
+        };
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function nextSlide() {
+      const slides = getActiveTopic().slides;
+      stopAllSpeech();
+      activeSlideIndex = (activeSlideIndex + 1) % slides.length;
+      renderSlideDeck();
+    }
+
+    function prevSlide() {
+      const slides = getActiveTopic().slides;
+      stopAllSpeech();
+      activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
+      renderSlideDeck();
+    }
+
+    function togglePlayLecture() {
+      if (isPlayingSpeech) {
+        stopAllSpeech();
+      } else {
+        speakCurrentSlide();
+      }
+    }
+
+    function speakCurrentSlide() {
+      stopAllSpeech();
+      const topic = getActiveTopic();
+      const slide = topic.slides[activeSlideIndex];
+      if (!slide) return;
+
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(slide.narration);
+        utterance.lang = 'pt-BR';
+        utterance.rate = parseFloat(document.getElementById('speech-rate')?.value || '1.15');
+
+        const voices = window.speechSynthesis.getVoices();
+        const ptVoice = voices.find(v => v.lang.includes('pt-BR') || v.lang.includes('pt'));
+        if (ptVoice) utterance.voice = ptVoice;
+
+        utterance.onstart = () => setPlayingStateUI(true, "Narrando Slide ao Vivo...");
+        utterance.onend = () => {
+          if (activeSlideIndex < topic.slides.length - 1) {
+            activeSlideIndex++;
+            renderSlideDeck();
+            speakCurrentSlide();
+          } else {
+            setPlayingStateUI(false, "Aula Concluída");
+          }
+        };
+        utterance.onerror = () => setPlayingStateUI(false, "Pronto para narrar");
+
+        window.speechSynthesis.speak(utterance);
+        setPlayingStateUI(true, "Narrando Slide ao Vivo...");
+      }
+    }
+
+    function updateSpeechRate() {
+      if (isPlayingSpeech) speakCurrentSlide();
+    }
+
+    function stopAllSpeech() {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      const audioEl = document.getElementById('gemini-audio-player');
+      if (audioEl) audioEl.pause();
+      setPlayingStateUI(false, "Pronto para narrar");
+    }
+
+    function setPlayingStateUI(playing, labelText) {
+      isPlayingSpeech = playing;
+      const waveContainer = document.getElementById('voice-wave-container');
+      document.getElementById('voice-status-label').innerText = labelText;
+      document.getElementById('play-icon').innerText = playing ? "⏸" : "▶";
+      document.getElementById('play-label').innerText = playing ? "Pausar Vídeo-Aula" : "Dar Play na Vídeo-Aula Narrada";
+      waveContainer.classList.toggle('playing', playing);
+    }
+
+    function base64ToArrayBuffer(base64) {
+      const binaryString = window.atob(base64);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
+      return bytes.buffer;
+    }
+
+    function pcmToWav(pcm16, sampleRate = 24000) {
+      const buffer = new ArrayBuffer(44 + pcm16.length * 2);
+      const view = new DataView(buffer);
+      const writeString = (offset, str) => {
+        for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+      };
+      writeString(0, 'RIFF');
+      view.setUint32(4, 36 + pcm16.length * 2, true);
+      writeString(8, 'WAVE');
+      writeString(12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, 1, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * 2, true);
+      view.setUint16(32, 2, true);
+      view.setUint16(34, 16, true);
+      writeString(36, 'data');
+      view.setUint32(40, pcm16.length * 2, true);
+      let offset = 44;
+      for (let i = 0; i < pcm16.length; i++, offset += 2) view.setInt16(offset, pcm16[i], true);
+      return new Blob([buffer], { type: 'audio/wav' });
+    }
+
+    async function generateGeminiStudioAudio() {
+      stopAllSpeech();
+      const topic = getActiveTopic();
+      const slide = topic.slides[activeSlideIndex];
+      const btn = document.getElementById('btn-gemini-tts');
+      const originalText = btn.innerHTML;
+
+      btn.disabled = true;
+      btn.innerHTML = `<span>⏳ Sintetizando Podcast Dual-Voice...</span>`;
+      setPlayingStateUI(true, "Gerando Voz Studio IA...");
+
+      const scriptPrompt = `TTS the following Portuguese CFA study dialogue between Professor and Analista:\nProfessor: Vamos direto ao ponto sobre ${slide.heading}. ${slide.narration}\nAnalista: Excelente ponto, Paulo! E na prova do CFA, atenção máxima para esta dica: ${slide.examTip}`;
+
+      const apiKey = getEffectiveApiKey();
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+      const payload = {
+        contents: [{ parts: [{ text: scriptPrompt }] }],
+        generationConfig: {
+          responseModalities: ["AUDIO"],
+          speechConfig: {
+            multiSpeakerVoiceConfig: {
+              speakerVoiceConfigs: [
+                { speaker: "Professor", voiceConfig: { prebuiltVoiceConfig: { voiceName: "Orus" } } },
+                { speaker: "Analista", voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } }
+              ]
+            }
+          }
+        }
+      };
+
+      try {
+        const response = await fetchWithRetry(apiUrl, payload);
+        const result = await response.json();
+        const part = result?.candidates?.[0]?.content?.parts?.[0];
+        const audioData = part?.inlineData?.data;
+        const mimeType = part?.inlineData?.mimeType || "audio/L16;rate=24000";
+
+        if (audioData) {
+          const rateMatch = mimeType.match(/rate=(\d+)/);
+          const sampleRate = rateMatch ? parseInt(rateMatch[1], 10) : 24000;
+          const pcm16 = new Int16Array(base64ToArrayBuffer(audioData));
+          const wavBlob = pcmToWav(pcm16, sampleRate);
+          const audioEl = document.getElementById('gemini-audio-player');
+          audioEl.src = URL.createObjectURL(wavBlob);
+          document.getElementById('audio-source-indicator').innerText = "Voz: Gemini 2.5 Studio Dual-Host";
+          audioEl.onended = () => setPlayingStateUI(false, "Podcast Finalizado");
+          await audioEl.play();
+          setPlayingStateUI(true, "Tocando Podcast Gemini TTS...");
+        } else {
+          speakCurrentSlide();
+        }
+      } catch (err) {
+        speakCurrentSlide();
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }
+    }
+
+    // =========================================================================
+    // 4. ABA 2: RESUMO EXECUTIVO, FÓRMULAS & GLOSSÁRIO EN-PT
+    // =========================================================================
+    function renderResumoTab() {
+      const topic = getActiveTopic();
+      document.getElementById('resumo-content-html').innerHTML = topic.resumoHTML;
+
+      const trapsEl = document.getElementById('resumo-traps-list');
+      trapsEl.innerHTML = '';
+      (topic.traps || []).forEach(t => {
+        const li = document.createElement('li');
+        li.innerText = t;
+        trapsEl.appendChild(li);
+      });
+
+      const formulasEl = document.getElementById('resumo-formulas-box');
+      formulasEl.innerHTML = '';
+      (topic.formulas || []).forEach(f => {
+        const div = document.createElement('div');
+        div.className = 'bg-[#141417] border border-[#2A2A32] p-3 rounded-lg';
+        div.innerHTML = `
+          <div class="text-[10px] text-[#A1A1AA] uppercase mb-1">${f.label}</div>
+          <div class="text-[#E5C158] font-semibold break-words">${f.code}</div>
+        `;
+        formulasEl.appendChild(div);
+      });
+
+      const glossaryEl = document.getElementById('resumo-glossary-box');
+      glossaryEl.innerHTML = '';
+      (topic.glossary || []).forEach(g => {
+        const div = document.createElement('div');
+        div.className = 'border-b border-[#2A2A32] pb-2 last:border-none';
+        div.innerHTML = `
+          <div class="font-mono-code font-semibold text-[#F5F2EB]">${g.en}</div>
+          <div class="text-[#A1A1AA] mt-0.5">${g.pt}</div>
+        `;
+        glossaryEl.appendChild(div);
+      });
+    }
+
+    // =========================================================================
+    // 5. ABA 3: QUESTÕES COM ENGENHARIA REVERSA + GERADOR DE QUESTÃO EXTRA IA
+    // =========================================================================
+    function renderQuestionsTab() {
+      const topic = getActiveTopic();
+      const container = document.getElementById('questions-list-container');
+      container.innerHTML = '';
+
+      (topic.questions || []).forEach((q, qIdx) => {
+        const card = document.createElement('div');
+        card.className = 'card-surface p-6 space-y-4';
+        card.id = `q-card-${q.id}`;
+
+        const header = document.createElement('div');
+        header.className = 'flex flex-wrap items-center justify-between gap-2 border-b border-[#2A2A32] pb-3';
+        header.innerHTML = `
+          <span class="text-xs font-mono-code uppercase text-[#D4AF37] font-bold">Questão #${qIdx + 1} • Padrão CFA Level 1</span>
+          <div class="flex items-center gap-2">
+            <button onclick="openTutorModal('Me explique com mais detalhes a lógica da Questão #${qIdx + 1}: ' + ${JSON.stringify(q.stem)})" class="text-xs px-2.5 py-1 rounded-lg bg-[#18181C] hover:bg-[#222228] border border-[#2A2A32] text-[#A1A1AA] hover:text-[#F5F2EB] transition">
+              💬 Tirar Dúvida desta Questão
+            </button>
+            <button onclick="speakQuestionExplanation('${q.id}')" class="text-xs px-3 py-1 rounded-lg bg-[#24242B] hover:bg-[#2E2E38] border border-[#2A2A32] text-[#E5C158] flex items-center gap-1.5 transition">
+              <span>🔊 Ouvir Raio-X em Voz</span>
+            </button>
+          </div>
+        `;
+        card.appendChild(header);
+
+        const stem = document.createElement('p');
+        stem.className = 'text-sm md:text-base text-[#F5F2EB] font-medium leading-relaxed';
+        stem.innerText = q.stem;
+        card.appendChild(stem);
+
+        const optionsList = document.createElement('div');
+        optionsList.className = 'space-y-3 pt-1';
+
+        q.options.forEach(opt => {
+          const optBox = document.createElement('div');
+          optBox.className = 'q-option-item border border-[#2A2A32] hover:border-[#D4AF37] bg-[#141417] rounded-xl p-4 cursor-pointer transition';
+          optBox.dataset.correct = opt.correct ? 'true' : 'false';
+
+          optBox.innerHTML = `
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-md bg-[#24242B] border border-[#3F3F46] text-xs font-mono-code font-bold flex items-center justify-center text-[#E5C158] shrink-0 mt-0.5">${opt.letter}</span>
+                <span class="text-sm text-[#F5F2EB] leading-snug">${opt.text}</span>
+              </div>
+              <span class="status-pill hidden text-[11px] font-mono-code font-bold px-2 py-0.5 rounded shrink-0"></span>
+            </div>
+            <div class="explanation-box hidden mt-3 pt-3 border-t border-[#2A2A32] text-xs leading-relaxed">
+              ${opt.explanation}
+            </div>
+          `;
+
+          optBox.onclick = () => {
+            revealSingleQuestionCard(card, q.id, opt.correct);
+          };
+
+          optionsList.appendChild(optBox);
+        });
+
+        card.appendChild(optionsList);
+        container.appendChild(card);
+      });
+
+      updateMasteryScoreUI();
+    }
+
+    function revealSingleQuestionCard(cardElement, questionId, clickedCorrect) {
+      if (answeredQuestions[questionId] === undefined && clickedCorrect !== null) {
+        answeredQuestions[questionId] = clickedCorrect;
+        saveStateToStorage();
+        updateMasteryScoreUI();
+      }
+
+      const optionItems = cardElement.querySelectorAll('.q-option-item');
+      optionItems.forEach(item => {
+        const isCorrect = item.dataset.correct === 'true';
+        const expBox = item.querySelector('.explanation-box');
+        const pill = item.querySelector('.status-pill');
+
+        expBox.classList.remove('hidden');
+        pill.classList.remove('hidden');
+
+        if (isCorrect) {
+          item.className = 'q-option-item border border-[#10B981] bg-[#10B981]/10 rounded-xl p-4 transition';
+          expBox.className = 'explanation-box mt-3 pt-3 border-t border-[#10B981]/30 text-xs leading-relaxed text-[#D1FAE5]';
+          pill.className = 'status-pill text-[11px] font-mono-code font-bold px-2 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] shrink-0';
+          pill.innerText = '✓ CORRETA';
+        } else {
+          item.className = 'q-option-item border border-[#EF4444]/60 bg-[#EF4444]/10 rounded-xl p-4 transition';
+          expBox.className = 'explanation-box mt-3 pt-3 border-t border-[#EF4444]/30 text-xs leading-relaxed text-[#FEE2E2]';
+          pill.className = 'status-pill text-[11px] font-mono-code font-bold px-2 py-0.5 rounded bg-[#EF4444]/20 text-[#EF4444] shrink-0';
+          pill.innerText = '✕ ARMADILHA / FALSA';
+        }
+      });
+    }
+
+    function revealAllQuestionsInTopic() {
+      const topic = getActiveTopic();
+      (topic.questions || []).forEach(q => {
+        const card = document.getElementById(`q-card-${q.id}`);
+        if (card) revealSingleQuestionCard(card, q.id, null);
+      });
+    }
+
+    function resetTopicQuiz() {
+      renderQuestionsTab();
+    }
+
+    function speakQuestionExplanation(questionId) {
+      stopAllSpeech();
+      const topic = getActiveTopic();
+      const q = (topic.questions || []).find(item => item.id === questionId);
+      if (!q) return;
+
+      const card = document.getElementById(`q-card-${q.id}`);
+      if (card) revealSingleQuestionCard(card, q.id, null);
+
+      const fullExplanation = `Questão: ${q.stem}. ` +
+        q.options.map(o => `Alternativa ${o.letter}: ${o.explanation}`).join(' ');
+
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(fullExplanation);
+        u.lang = 'pt-BR';
+        u.rate = 1.15;
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function updateMasteryScoreUI() {
+      let totalQ = 0;
+      let completedTopics = 0;
+      curriculumDB.forEach(t => {
+        totalQ += (t.questions || []).length;
+        if (t.completed) completedTopics++;
+      });
+
+      const answeredKeys = Object.keys(answeredQuestions);
+      const correctCount = answeredKeys.filter(k => answeredQuestions[k]).length;
+
+      const compEl = document.getElementById('topics-completed-score');
+      if (compEl) compEl.innerText = `${completedTopics} / ${curriculumDB.length}`;
+
+      document.getElementById('mastery-score').innerText = `${correctCount} / ${totalQ} acertadas`;
+      const pct = totalQ > 0 ? Math.max(8, Math.round((correctCount / totalQ) * 100)) : 8;
+      document.getElementById('mastery-bar').style.width = `${pct}%`;
+    }
+
+    // Gera +1 questão comentada inédita sobre o tópico atual sob demanda
+    async function generateExtraQuestionWithAI() {
+      const topic = getActiveTopic();
+      const btn = document.getElementById('btn-extra-q');
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span>⏳ Criando Questão Inédita CFA...</span>`;
+
+      const apiKey = getEffectiveApiKey();
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const payload = {
+        contents: [{
+          role: "user",
+          parts: [{
+            text: `Crie 1 questão inédita no padrão rigoroso do CFA Level 1 (3 alternativas: A, B, C) em Português (pt-BR) sobre o tópico: "${topic.title}" (${topic.macro}).
+Explique em cada alternativa por que a correta é verdadeira e por que cada falsa é uma armadilha.`
+          }]
+        }],
+        generationConfig: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: "OBJECT",
+            properties: {
+              stem: { type: "STRING" },
+              options: {
+                type: "ARRAY",
+                items: {
+                  type: "OBJECT",
+                  properties: {
+                    letter: { type: "STRING" },
+                    text: { type: "STRING" },
+                    correct: { type: "BOOLEAN" },
+                    explanation: { type: "STRING" }
+                  },
+                  required: ["letter", "text", "correct", "explanation"]
+                }
+              }
+            },
+            required: ["stem", "options"]
+          }
+        }
+      };
+
+      try {
+        const res = await fetchWithRetry(apiUrl, payload);
+        const data = await res.json();
+        const parsed = JSON.parse(data.candidates[0].content.parts[0].text);
+        topic.questions.push({
+          id: `${topic.id}-q-${Date.now()}`,
+          stem: parsed.stem,
+          options: parsed.options
+        });
+        saveStateToStorage();
+        renderQuestionsTab();
+        renderSidebarTree();
+      } catch (e) {
+        openTutorModal("Gere para mim uma questão comentada extra sobre este tópico com 3 alternativas (A, B, C).");
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = original;
+      }
+    }
+
+    // =========================================================================
+    // 6. TUTOR IA DE DÚVIDAS ESPECÍFICAS (CONTEXTUALIZADO NO TÓPICO ATUAL)
+    // =========================================================================
+    function openTutorModal(prefillQuestion = "") {
+      const topic = getActiveTopic();
+      document.getElementById('tutor-modal-topic').innerText = `Tutor IA • ${topic.title}`;
+      document.getElementById('tutor-modal').classList.remove('hidden');
+      if (prefillQuestion) {
+        document.getElementById('tutor-user-input').value = prefillQuestion;
+        askTutorQuestion();
+      }
+    }
+
+    function closeTutorModal() {
+      document.getElementById('tutor-modal').classList.add('hidden');
+    }
+
+    function sendQuickTutorQuestion(qText) {
+      document.getElementById('tutor-user-input').value = qText;
+      askTutorQuestion();
+    }
+
+    async function fetchWithRetry(url, payload, retries = 3) {
+      let delay = 1000;
+      for (let i = 0; i < retries; i++) {
+        try {
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) return res;
+        } catch (e) {}
+        await new Promise(r => setTimeout(r, delay));
+        delay *= 2;
+      }
+      throw new Error("Erro de conexão");
+    }
+
+    async function askTutorQuestion() {
+      const inputEl = document.getElementById('tutor-user-input');
+      const userQuestion = inputEl.value.trim();
+      if (!userQuestion) return;
+
+      const topic = getActiveTopic();
+      const historyEl = document.getElementById('tutor-chat-history');
+      const btnSend = document.getElementById('btn-send-tutor');
+
+      // Adiciona pergunta do usuário na tela
+      const userBubble = document.createElement('div');
+      userBubble.className = 'bg-[#D4AF37]/15 border border-[#D4AF37]/40 rounded-xl p-3 text-[#F5F2EB] ml-8';
+      userBubble.innerHTML = `<strong class="text-[#E5C158] block mb-0.5">Você (pauloacichetto):</strong>${userQuestion}`;
+      historyEl.appendChild(userBubble);
+
+      inputEl.value = '';
+      btnSend.disabled = true;
+      btnSend.innerText = "Pensando...";
+
+      const loadingBubble = document.createElement('div');
+      loadingBubble.className = 'bg-[#1C1C21] border border-[#2A2A32] rounded-xl p-3.5 text-[#A1A1AA] mr-8';
+      loadingBubble.innerText = "⏳ Consultando regras oficiais do CFA Institute para este tópico...";
+      historyEl.appendChild(loadingBubble);
+      historyEl.scrollTop = historyEl.scrollHeight;
+
+      const contextFormulas = (topic.formulas || []).map(f => `${f.label}: ${f.code}`).join(" | ");
+      const systemInstruction = `Você é o Tutor Particular CFA Level 1 do Paulo (pauloacichetto).
+Responda em Português (pt-BR) de forma extremamente didática, direta e sem alucinar, mantendo os termos oficiais em inglês entre parênteses.
+Contexto estrito do tópico atual que o Paulo está estudando:
+- Macro: ${topic.macro}
+- Tópico: ${topic.title}
+- Fórmulas oficiais do tópico: ${contextFormulas}
+- Pegadinhas conhecidas: ${(topic.traps || []).join("; ")}`;
+
+      const apiKey = getEffectiveApiKey();
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+      const payload = {
+        systemInstruction: { parts: [{ text: systemInstruction }] },
+        contents: [{ role: "user", parts: [{ text: userQuestion }] }]
+      };
+
+      try {
+        const res = await fetchWithRetry(apiUrl, payload);
+        const data = await res.json();
+        const answerText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Não consegui processar a resposta agora.";
+        loadingBubble.className = 'bg-[#1C1C21] border border-[#2A2A32] rounded-xl p-3.5 text-[#F5F2EB] mr-8 whitespace-pre-wrap leading-relaxed';
+        loadingBubble.innerHTML = `<strong class="text-[#10B981] block mb-1">👨‍🏫 Tutor CFA (${topic.title}):</strong>${answerText}`;
+      } catch (e) {
+        loadingBubble.innerHTML = `<strong class="text-[#E5C158] block mb-1">👨‍🏫 Nota do Tutor:</strong>Para usar o Tutor IA fora do Canvas (no seu GitHub Pages), cole sua chave gratuita da API Gemini na Aba 4. Enquanto isso, revise o Quadro-Negro e o Glossário na Aba 2!`;
+      } finally {
+        btnSend.disabled = false;
+        btnSend.innerText = "Perguntar ➔";
+        historyEl.scrollTop = historyEl.scrollHeight;
+      }
+    }
+
+    // =========================================================================
+    // 7. OPÇÃO A DE PRODUÇÃO: BAIXAR `index.html` PRONTO PARA SUBIR NO GITHUB
+    // =========================================================================
+    function downloadProductionIndexHTML() {
+      const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "index.html";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // Inicialização
+    window.onload = () => {
+      const savedKey = localStorage.getItem(STORAGE_KEY_API);
+      if (savedKey) {
+        const inputKey = document.getElementById('custom-gemini-key');
+        if (inputKey) inputKey.value = savedKey;
+        const statusEl = document.getElementById('api-key-status');
+        if (statusEl) statusEl.innerText = "✓ Chave Pessoal Ativa";
+      }
+      renderSidebarTree();
+      selectTopic(curriculumDB[0].id);
+    };
+  </script>
+
+</body></html>
